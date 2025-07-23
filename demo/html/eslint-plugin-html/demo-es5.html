@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+  <meta name="description" content="html-eslint test page" />
+  <meta name="author" content="立树" />
+  <title>Demo</title>
+
+  <script>
+    window.onload = function () {
+      var aa = 1111;
+      console.log(aa);
+    };
+    var vm = new Vue({
+      data: {
+        id: "1001"
+      },
+      mounted: function() {
+        console.log(66666);
+      }
+    });
+  </script>
+
+  <style>
+    body {
+      background: #999999;
+        color: #6666;
+    }
+  </style>
+</head>
+<body>
+
+          <template>
+            <div>
+              <button @click="(evt) => {console.log(evt);}">login</button>
+            </div>
+          </template>
+
+
+      <div data-id="6666">
+        <button @click="(evt) => {console.log(evt);}">login</button>
+      </div>
+
+  <!-- ❌ 属性重复 -->
+  <div foo="foo1" foo="foo2"></div>
+  <div foo foo></div>
+
+</body>
+</html>
+
+
+<script>
+  window.onload = function () {
+        var bb = 1111;
+    console.log(bb);
+  };
+</script>

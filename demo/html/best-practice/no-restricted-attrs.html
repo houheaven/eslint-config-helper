@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+  <meta name="description" content="html-eslint test page" />
+  <meta name="author" content="立树" />
+  <title>no-restricted-attrs</title>
+</head>
+<body>
+
+  <!-- ✅ 可用属性 -->
+  <div foo="foo"></div>
+  <div bar></div>
+  <p data-name="foo"></p>
+  <p data="foo"></p>
+  <div data-name="foo"></div>
+  <img data-name="foo" alt="demo" />
+
+  <!-- ❌ 不可用属性 -->
+  <p test-name="foo"></p>
+  <p test="foo"></p>
+  <div test-name="foo"></div>
+  <img test-name="foo" alt="demo" />
+
+</body>
+</html>

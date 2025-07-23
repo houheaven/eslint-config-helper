@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+  <meta name="description" content="html-eslint test page" />
+  <meta name="author" content="立树" />
+  <title>no-restricted-attr-values</title>
+</head>
+<body>
+
+  <!-- ✅ 属性值可用 -->
+  <div foo="foo"></div>
+  <div bar></div>
+
+  <!-- ❌ 属性值不可用 -->
+  <p data-test="data-test-fooooo"></p>
+  <div class="data-test-fooooo"></div>
+  <img class="data-test-fooooo" alt="demo" />
+  <div data-name="fooooo"></div>
+  <img data-name="start fooooo" alt="demo" />
+
+</body>
+</html>

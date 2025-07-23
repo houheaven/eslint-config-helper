@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+  <meta name="description" content="html-eslint test page" />
+  <meta name="author" content="立树" />
+  <title>javascript-mime-types</title>
+
+  <!-- 默认 type="text/javascript" -->
+  <script>
+    window.onload = () => {
+      var bb = 1111;
+    };
+  </script>
+
+  <!-- type="text/javascript" -->
+  <script type="text/javascript">
+    window.onload = () => {
+      var bb = 1111;
+    };
+  </script>
+
+  <!-- type="module" -->
+  <script type="module">
+    window.onload = () => {
+      var bb = 1111;
+    };
+  </script>
+
+  <!-- type="text/html" -->
+  <script type="text/html" id="tpl-list">
+    {{# for(var i=0;i<d.length;i++) { }}
+      <tr data-mid="{{d[i].id}}">
+        <td class="check1" width="20"><input type="checkbox" class="checkbox" /></td>
+        <td class="check0" width="100"><a href="movie_detail.php?nav=n301&mid={{d[i].id}}"><img class="lazy movie" src="../pub/image/lazy_200x250.jpg" data-src="{{d[i].poster}}?imageView2/1/w/100/h/125" /></a></td>
+        <td class="check1" width="80">{{d[i].name}}</td>
+        <td class="check1" width="50">{{d[i].director}}</td>
+        <td class="check1" width="50">{{d[i].cate_name}}</td>
+        <td class="check1" width="">{{d[i].tag}}</td>
+        <td class="check1" width="50">{{d[i].area}}</td>
+        <td class="check1" width="40">{{d[i].score}}</td>
+        <td class="check1" width="40">{{d[i].like}}</td>
+        <td class="check1" width="40">{{d[i].view}}</td>
+        <td class="check0" width="50"><input type="checkbox" class="btn_switch sm is_new" {{d[i].is_new==1?"checked":""}} /></td>
+        <td class="check0" width="50"><input type="checkbox" class="btn_switch sm is_show" {{d[i].is_show==1?"checked":""}} /></td>
+        <td class="check0" width="60">
+        <a href="movie_edit.php?nav=n301&mid={{d[i].id}}" title="修改" class="btn_edt"><img src="../pub/icons/sys_pencil.png" /></a>
+        <a href="javascript:;" title="删除" class="btn_del"><img src="../pub/icons/cross.png" /></a>
+        </td>
+      </tr>
+    {{# } }}
+  </script>
+</head>
+<body>
+</body>
+</html>
