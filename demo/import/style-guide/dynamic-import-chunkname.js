@@ -1,5 +1,6 @@
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable spaced-comment */
+/* eslint-disable import/no-unresolved */
 
 // no leading comment
 import("someModule");

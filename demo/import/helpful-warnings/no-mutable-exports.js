@@ -1,4 +1,6 @@
 
+/* eslint-disable no-var */
+/* eslint-disable prefer-const */
 /* eslint-disable import/group-exports */
 
 export var num = 666;

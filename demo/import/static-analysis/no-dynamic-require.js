@@ -1,6 +1,6 @@
 
+/* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
-/* eslint-disable import/no-nodejs-modules */
 
 const path = require("path");
 const res = require(path.resolve(__dirname, "utils-math.js"));

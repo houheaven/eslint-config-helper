@@ -1,10 +1,13 @@
 
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-/* eslint-disable import/group-exports */
+/* eslint-disable no-multi-assign */
+/* eslint-disable no-use-before-define */
 /* eslint-disable import/first */
 /* eslint-disable import/no-namespace */
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-undef */
+/* eslint-disable import/no-duplicates */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/group-exports */
 
 import { stuff } from "starwars";
 module.exports = thing;

@@ -1,5 +1,7 @@
 
 /* eslint-disable no-unused-vars */
+/* eslint-disable import/order */
+/* eslint-disable import/no-unresolved */
 
 import foo from "./foo";
 
