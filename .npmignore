@@ -1,0 +1,30 @@
+
+# Log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor
+.idea
+.vscode
+.project
+.editorconfig
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# System
+.DS_Store
+
+# Development
+node_modules
+package-lock.json
+*.tgz
+.*lintrc.js
+.*ignore
+
+# Project
+demo/
+Update.md
