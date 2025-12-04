@@ -1,4 +1,8 @@
 
+import Vue from "vue";
+
+const res = () => import("./curly");
+
 var single = 'single';
 var double = "double";
 
@@ -14,3 +18,9 @@ var backtick = `back\ntick`;
 var backtick = `back${single}tick`;
 var backtick = `a string containing 'backticks'`;
 var backtick = `a string containing "backticks"`;
+
+
+
+
+
+
