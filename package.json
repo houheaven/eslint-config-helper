@@ -1,0 +1,28 @@
+{
+  "name": "@houheaven/eslint-config-helper",
+  "version": "1.0.0",
+  "description": "Eslint 规则助手",
+  "author": "立树",
+  "main": "eslint/prettier.js",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "houheaven",
+    "eslint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/houheaven/eslint-config-helper.git"
+  },
+  "bugs": {
+    "url": "https://gitee.com/houheaven/eslint-config-helper/issues"
+  },
+  "homepage": "https://gitee.com/houheaven/eslint-config-helper",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "lint-check": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^8.23.0"
+  }
+}
