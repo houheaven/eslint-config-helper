@@ -1,9 +1,9 @@
 {
   "name": "@houheaven/eslint-config-helper",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Eslint 规则助手",
   "author": "立树",
-  "main": "lib/configs/prettier.js",
+  "main": "index.js",
   "license": "MIT",
   "private": false,
   "keywords": [
@@ -22,7 +22,16 @@
     "lint": "eslint . --fix",
     "lint-check": "eslint ."
   },
-  "devDependencies": {
-    "eslint": "^8.23.0"
+  "dependencies": {
+    "@html-eslint/eslint-plugin": "^0.14.1",
+    "@html-eslint/parser": "^0.14.0",
+    "eslint": "^8.23.1",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-node": "^0.3.6",
+    "eslint-import-resolver-webpack": "^0.13.2",
+    "eslint-plugin-html": "^7.1.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-vue": "^9.4.0",
+    "eslint-plugin-vuejs-accessibility": "^1.2.0"
   }
 }
