@@ -1,6 +1,6 @@
 {
   "name": "@houheaven/eslint-config-helper",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Eslint 规则助手",
   "author": "立树",
   "main": "index.js",
