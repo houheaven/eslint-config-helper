@@ -4,6 +4,13 @@
 > @houheaven/eslint-config-helper
 
 
+## v1.2.2
+
+`发布：2022-10-05`
+<!-- 开发：2022-10-05 -->
+- 关闭了 `eslint-plugin-import` 中的 import/no-nodejs-modules 规则
+
+
 ## v1.2.1
 
 `发布：2022-09-28`

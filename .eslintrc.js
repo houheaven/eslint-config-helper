@@ -23,7 +23,7 @@ module.exports = {
   },
   ignorePatterns: [
     "node_modules",
-    // "demo",
+    "demo",
     "!.eslintrc.js",
   ],
 };
