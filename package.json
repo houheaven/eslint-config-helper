@@ -1,9 +1,9 @@
 {
   "name": "@houheaven/eslint-config-helper",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Eslint 规则助手",
   "author": "立树",
-  "main": "eslint/prettier.js",
+  "main": "lib/configs/prettier.js",
   "license": "MIT",
   "private": false,
   "keywords": [
