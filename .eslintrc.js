@@ -12,11 +12,11 @@ module.exports = {
   },
   extends: [
     // "eslint:recommended",
-    // "./index.js",
-    "./vue2.js",
-    // "./vue3.js",
-    // "./html.js",
-    // "./format.js",
+    // "./lib/eslint.js",
+    "./lib/vue2.js",
+    // "./lib/vue3.js",
+    // "./lib/html.js",
+    // "./lib/format.js",
   ],
   rules: {
     // rules
