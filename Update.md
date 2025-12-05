@@ -4,6 +4,13 @@
 > @houheaven/eslint-config-helper
 
 
+## v1.3.1
+
+`发布：2023-03-28`
+<!-- 开发：2023-03-28 -->
+- 新增 依赖包：`@babel/eslint-parser`（支持 ECMAScript 最新语法）
+
+
 ## v1.3.0
 
 `发布：2022-10-09`

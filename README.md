@@ -110,3 +110,4 @@ module.exports = {
 - [`eslint-import-resolver-webpack`](https://www.npmjs.com/package/eslint-import-resolver-webpack)  
 - [`@html-eslint/eslint-plugin`](https://www.npmjs.com/package/@html-eslint/eslint-plugin)  
 - [`@html-eslint/parser`](https://www.npmjs.com/package/@html-eslint/parser)  
+- [`@babel/eslint-parser`](https://www.npmjs.com/package/@babel/eslint-parser)  

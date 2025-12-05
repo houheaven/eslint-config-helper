@@ -8,6 +8,7 @@ module.exports = {
     es2021: true,
   },
   parserOptions: {
+    parser: "@babel/eslint-parser",
     sourceType: "module",
   },
   extends: [
