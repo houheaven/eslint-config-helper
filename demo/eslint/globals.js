@@ -1,4 +1,9 @@
 
+/* eslint-disable no-new */
+/* eslint-disable no-magic-numbers */
+/* eslint-disable arrow-body-style */
+/* eslint-disable prefer-promise-reject-errors */
+
 // 案例 1
 // 直接使用 $ 会报错
 // console.log($);

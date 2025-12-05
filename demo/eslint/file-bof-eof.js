@@ -1,4 +1,9 @@
 
+/* eslint-disable func-style */
+/* eslint-disable one-var */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-var */
+
 
 
 

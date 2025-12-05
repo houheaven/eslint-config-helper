@@ -1,7 +1,4 @@
 
-const a = 666;
-console.log(a);
-
 // .eslintrc.js
 // env 配置 browser，可以识别出 window
 // module.exports = {
@@ -10,5 +7,8 @@ console.log(a);
 //   },
 //   extends: 'eslint:all',
 // }
+
+const a = 666;
+console.log(a);
 
 console.log(window);
