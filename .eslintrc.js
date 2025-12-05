@@ -8,13 +8,13 @@ module.exports = {
     es2021: true,
   },
   parserOptions: {
-    parser: "@babel/eslint-parser",
     sourceType: "module",
   },
   extends: [
     // "eslint:recommended",
     // "./lib/eslint.js",
-    "./lib/vue2.js",
+    "./lib/typescript.js",
+    // "./lib/vue2.js",
     // "./lib/vue3.js",
     // "./lib/html.js",
     // "./lib/format.js",

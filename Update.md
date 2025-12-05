@@ -4,6 +4,14 @@
 > @houheaven/eslint-config-helper
 
 
+## v1.4.0
+
+`发布：2023-03-29`
+<!-- 开发：2023-03-29 -->
+- 支持 typescript 校验：@houheaven/eslint-config-helper/typescript
+- 关闭了 `eslint` 中的 lines-between-class-members 规则
+
+
 ## v1.3.1
 
 `发布：2023-03-28`
@@ -37,7 +45,7 @@
 `发布：2022-09-22`
 <!-- 开发：2022-09-15 -->
 - 代码重构
-- 支持 js 校验：@houheaven/eslint-config-helper
+- 支持 javascript 校验：@houheaven/eslint-config-helper
 - 支持 vue2 校验：@houheaven/eslint-config-helper/vue2
 - 支持 vue3 校验：@houheaven/eslint-config-helper/vue3
 - 支持 html 校验：@houheaven/eslint-config-helper/html

@@ -2,7 +2,7 @@
 # @houheaven/eslint-config-helper
 
 > Eslint 规则助手  
-> 主要功能是处理 html、JavaScript、Vue 中的语法校验、代码格式化
+> 主要功能是处理 html、Javascript、Typescript、Vue 中的语法校验、代码格式化
 
 
 ## 特点  
@@ -11,7 +11,8 @@
 - 内置了 `eslint-plugin-vue`，并对其规则进行了优化
 - 内置了 `eslint-plugin-vuejs-accessibility`，并对其规则进行了优化
 - 内置了 `@html-eslint/eslint-plugin`，并对其规则进行了优化
-- 支持 html、JavaScript、Vue2、Vue3
+- 内置了 `@typescript-eslint/eslint-plugin`，并对其规则进行了优化
+- 支持 html、Javascript、Typescript、Vue2、Vue3
 
 
 ## 安装
@@ -39,6 +40,7 @@ module.exports = {
 | 模式名称 | 功能说明 | 适用场景 |  
 | ------ | ------ | ------ |  
 | @houheaven/eslint-config-helper | `语法校验` `代码格式化` | `js` |  
+| @houheaven/eslint-config-helper/typescript | `语法校验` `代码格式化` | `ts` |  
 | @houheaven/eslint-config-helper/vue2 | `语法校验` `代码格式化` | `js` `vue2` |  
 | @houheaven/eslint-config-helper/vue3 | `语法校验` `代码格式化` | `js` `vue3` |  
 | @houheaven/eslint-config-helper/html | `语法校验` `代码格式化` | `js` `html` |  
@@ -86,7 +88,8 @@ module.exports = {
 - 查看 [`eslint-plugin-import 规则文档`](https://www.npmjs.com/package/eslint-plugin-import)  
 - 查看 [`eslint-plugin-vue 规则文档`](https://eslint.vuejs.org/rules/)  
 - 查看 [`eslint-plugin-vuejs-accessibility 规则文档`](https://github.com/vue-a11y/eslint-plugin-vuejs-accessibility/tree/main/docs)  
-- 查看 [`@html-eslint 规则文档`](https://yeonjuan.github.io/html-eslint/docs/getting-started.html)  
+- 查看 [`@html-eslint 规则文档`](https://yeonjuan.github.io/html-eslint/docs/getting-started/)  
+- 查看 [`@typescript-eslint/eslint-plugin 规则文档`](https://typescript-eslint.io/rules/)  
 
 <!--
 ## 常见问题
@@ -110,4 +113,7 @@ module.exports = {
 - [`eslint-import-resolver-webpack`](https://www.npmjs.com/package/eslint-import-resolver-webpack)  
 - [`@html-eslint/eslint-plugin`](https://www.npmjs.com/package/@html-eslint/eslint-plugin)  
 - [`@html-eslint/parser`](https://www.npmjs.com/package/@html-eslint/parser)  
-- [`@babel/eslint-parser`](https://www.npmjs.com/package/@babel/eslint-parser)  
+- [`typescript`](https://www.npmjs.com/package/typescript)  
+- [`@typescript-eslint/eslint-plugin`](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin)  
+- [`@typescript-eslint/parser`](https://www.npmjs.com/package/@typescript-eslint/parser)  
+<!-- - [`@babel/eslint-parser`](https://www.npmjs.com/package/@babel/eslint-parser)   -->
