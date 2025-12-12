@@ -26,6 +26,7 @@
   "files.trimTrailingWhitespace": false,                                  // 保存文件时，是否删除行末空格、tab 缩进
   "files.associations": {                                                 // 文件关联
     "settings.json": "jsonc",                                             // 修改 json 文件关联为 jsonc，可以使其关闭 Prettier 格式化
+    "tsconfig.json": "jsonc",                                             // 修改 json 文件关联为 jsonc，可以使其关闭 Prettier 格式化
     // "**/*/file_name.json": "jsonc",
   },
   // html
