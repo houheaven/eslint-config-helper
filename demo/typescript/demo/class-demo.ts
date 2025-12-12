@@ -1,16 +1,16 @@
 
-/* eslint-disable @typescript-eslint/method-signature-style */
 /* eslint-disable max-classes-per-file */
+/* eslint-disable @typescript-eslint/method-signature-style */
 
 // ====================================================
 
 // 类
 
 interface Eat {
-    eat(food: string): void;
+  eat(food: string): void;
 }
 interface Run {
-    run(distance: number): void;
+  run(distance: number): void;
 }
 
 class Person implements Run, Eat {
@@ -42,6 +42,3 @@ dog.eat("狗粮");
 dog.run(5000);
 
 // ====================================================
-
-// 避免污染全局变量
-export default undefined;
