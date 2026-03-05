@@ -5,7 +5,8 @@
 // - eslint-plugin-vue 定制规则
 // ==========================================================
 
-const utils = require("./utils/utils.js");
+// 这个插件为当前类库提供”开箱即用“的能力，使用者无需手动安装当前库的依赖项
+const utils = require("@houheaven/eslint-config-helper-core");
 
 module.exports = {
   overrides: [

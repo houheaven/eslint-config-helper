@@ -1,0 +1,7 @@
+
+packages:
+  - "packages/core"
+  - "packages/legacy"
+  - "packages/flat"
+  - "demo"
+  - "demo-flat"

@@ -26,7 +26,4 @@ package-lock.json
 .*ignore
 
 # Project
-.ai
-summary.js
-demo/
 Update.md

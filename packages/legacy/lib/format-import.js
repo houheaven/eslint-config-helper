@@ -5,7 +5,7 @@
 // - eslint-plugin-import 格式化规则（warn）
 // ==========================================================
 
-const utils = require("./utils/utils.js");
+const utils = require("@houheaven/eslint-config-helper-core");
 
 module.exports = {
   // 当 eslint-disable 注释配置未使用时，是否报错

@@ -1,23 +1,23 @@
 
 // ==========================================================
-// @houheaven/eslint-config-helper/eslint-es5
+// @houheaven/eslint-config-helper/format-html
 // ----------------------------------------------------------
-// - Eslint ES5 定制规则
+// - @html-eslint/eslint-plugin 定制规则（warn）
 // ==========================================================
 
-const utils = require("./utils/utils.js");
+const utils = require("@houheaven/eslint-config-helper-core");
 
 module.exports = {
   // 当 eslint-disable 注释配置未使用时，是否报错
-  reportUnusedDisableDirectives: true,
+  reportUnusedDisableDirectives: false,
   // 继承配置文件
   extends: [
-    // Eslint ES5 支持
-    "./support/es5-support.js",
+    // html 支持
+    "./support/html-support.js",
   ],
   // 规则
   rules: {
-    // Eslint ES5 规则
-    ...utils.rules.es5,
+    // html 规则（warn）
+    ...utils.getWarnRules("html"),
   },
 };

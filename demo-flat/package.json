@@ -1,0 +1,12 @@
+{
+  "name": "demo-flat",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@houheaven/eslint-config-helper": "file:../packages/flat"
+  },
+  "devDependencies": {
+    "eslint": "9.39.3",
+    "typescript": "5.9.3"
+  }
+}

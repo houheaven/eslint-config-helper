@@ -8,7 +8,7 @@ module.exports = {
   },
   // 继承配置文件
   extends: [
-    "../../lib/javascript-es5.js",
-    // "../../lib/format-es5.js",
+    "@houheaven/eslint-config-helper/es5",
+    // "@houheaven/eslint-config-helper/format-es5",
   ],
 };

@@ -27,7 +27,7 @@ module.exports = {
   },
   // 继承配置文件
   extends: [
-    // "../../lib/javascript-es5.js",
+    // "@houheaven/eslint-config-helper/es5",
     "eslint:all",
   ],
   // 定义规则

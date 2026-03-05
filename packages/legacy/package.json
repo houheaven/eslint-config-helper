@@ -1,0 +1,78 @@
+{
+  "name": "@houheaven/eslint-config-helper",
+  "version": "2.1.0",
+  "description": "Eslint 规则助手",
+  "author": "立树",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "houheaven",
+    "eslint",
+    "eslint-config-helper"
+  ],
+  "main": "lib/javascript-es6.js",
+  "exports": {
+    ".": "./lib/javascript-es6.js",
+    "./es6": "./lib/javascript-es6.js",
+    "./es5": "./lib/javascript-es5.js",
+    "./typescript": "./lib/typescript.js",
+    "./import": "./lib/import.js",
+    "./vue2": "./lib/vue2.js",
+    "./vue3": "./lib/vue3.js",
+    "./vue3-ts": "./lib/vue3-ts.js",
+    "./html": "./lib/html.js",
+    "./format-es5": "./lib/format-es5.js",
+    "./format-es6": "./lib/format-es6.js",
+    "./format-typescript": "./lib/format-typescript.js",
+    "./format-import": "./lib/format-import.js",
+    "./format-vue2": "./lib/format-vue2.js",
+    "./format-vue3": "./lib/format-vue3.js",
+    "./format-html": "./lib/format-html.js",
+    "./support-es5": "./lib/support/es5-support.js",
+    "./support-es6": "./lib/support/es6-support.js",
+    "./support-import": "./lib/support/import-support.js",
+    "./support-typescript": "./lib/support/typescript-support.js",
+    "./support-html": "./lib/support/html-support.js",
+    "./support-vue2": "./lib/support/vue2-support.js",
+    "./support-vue3": "./lib/support/vue3-support.js",
+    "./support-vue3-ts": "./lib/support/vue3-ts-support.js",
+    "./utils": "./lib/utils/utils.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/houheaven/eslint-config-helper.git"
+  },
+  "bugs": {
+    "url": "https://gitee.com/houheaven/eslint-config-helper/issues"
+  },
+  "homepage": "https://gitee.com/houheaven/eslint-config-helper",
+  "scripts": {
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@houheaven/eslint-config-helper-core": "workspace:*",
+    "@html-eslint/eslint-plugin": "0.43.0",
+    "@html-eslint/parser": "0.43.0",
+    "@rushstack/eslint-patch": "1.16.1",
+    "@stylistic/eslint-plugin": "3.1.0",
+    "@typescript-eslint/eslint-plugin": "8.50.1",
+    "@typescript-eslint/parser": "8.50.1",
+    "eslint-import-resolver-alias": "1.1.2",
+    "eslint-import-resolver-node": "0.3.6",
+    "eslint-import-resolver-webpack": "0.13.2",
+    "eslint-plugin-html": "8.1.3",
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-vue": "9.33.0"
+  },
+  "devDependencies": {
+    "eslint": "8.57.1",
+    "typescript": "5.9.3"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.57.1"
+  },
+  "bundledDependencies": [
+    "@houheaven/eslint-config-helper-core"
+  ]
+}

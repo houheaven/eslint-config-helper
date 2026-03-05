@@ -1,0 +1,52 @@
+{
+  "name": "@houheaven/eslint-config-helper",
+  "version": "3.0.0",
+  "description": "Eslint 规则助手 (Flat Config)",
+  "author": "立树",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "tag": "next"
+  },
+  "keywords": [
+    "houheaven",
+    "eslint",
+    "eslint-config-helper"
+  ],
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/houheaven/eslint-config-helper.git"
+  },
+  "bugs": {
+    "url": "https://gitee.com/houheaven/eslint-config-helper/issues"
+  },
+  "homepage": "https://gitee.com/houheaven/eslint-config-helper",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@houheaven/eslint-config-helper-core": "workspace:*",
+    "@html-eslint/eslint-plugin": "0.58.1",
+    "@html-eslint/parser": "0.58.1",
+    "@stylistic/eslint-plugin": "5.10.0",
+    "@typescript-eslint/eslint-plugin": "8.56.1",
+    "@typescript-eslint/parser": "8.56.1",
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-vue": "9.33.0",
+    "globals": "17.4.0"
+  },
+  "devDependencies": {
+    "eslint": "9.39.3",
+    "typescript": "5.9.3"
+  },
+  "peerDependencies": {
+    "eslint": "^9.39.3"
+  },
+  "bundledDependencies": [
+    "@houheaven/eslint-config-helper-core"
+  ]
+}

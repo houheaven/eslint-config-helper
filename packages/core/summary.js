@@ -2,7 +2,7 @@
 // 统计数据
 // 使用方式：node summary.js
 
-const allRules = require("./lib/rules/html/accessibility.js").rules;
+const allRules = require("./rules/html/accessibility.js").rules;
 
 // 统计函数
 function countRulesByLevel(rulesObj) {

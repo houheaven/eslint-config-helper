@@ -1,24 +1,25 @@
 
 // ==========================================================
-// @houheaven/eslint-config-helper/vue2
+// @houheaven/eslint-config-helper/es5
 // ----------------------------------------------------------
-// - eslint-plugin-vue 定制规则
+// - Eslint ES5 定制规则
 // ==========================================================
 
-const utils = require("./utils/utils.js");
+require("@rushstack/eslint-patch/modern-module-resolution");
+
+const utils = require("@houheaven/eslint-config-helper-core");
 
 module.exports = {
   // 当 eslint-disable 注释配置未使用时，是否报错
   reportUnusedDisableDirectives: true,
   // 继承配置文件
   extends: [
-    // Vue2 支持
-    "./support/vue2-support.js",
+    // Eslint ES5 支持
+    "./support/es5-support.js",
   ],
   // 规则
   rules: {
-    // Vue2 规则
-    ...utils.rules.vue,
-    ...utils.rules.vue2,
+    // Eslint ES5 规则
+    ...utils.rules.es5,
   },
 };

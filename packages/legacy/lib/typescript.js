@@ -5,6 +5,9 @@
 // - @typescript-eslint/eslint-plugin 定制规则
 // ==========================================================
 
+// 这个插件为当前类库提供”开箱即用“的能力，使用者无需手动安装当前库的依赖项
+require("@rushstack/eslint-patch/modern-module-resolution");
+
 // 132 条规则
 // 官方有很多种分类
 // 配置分组：recommended、strict、stylistic
@@ -12,7 +15,7 @@
 // 两类分组不能覆盖全部规则，部分规则还存在交叉，所以当前规则分类优先级如下：
 // extension > fixable > type-checked > has-suggestions > other
 
-const utils = require("./utils/utils.js");
+const utils = require("@houheaven/eslint-config-helper-core");
 
 module.exports = {
   // Typescript 规则很多是类型感知规则，需要访问 TypeScript 类型系统（即需要配置 parserOptions）

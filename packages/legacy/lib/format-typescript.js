@@ -5,7 +5,7 @@
 // - @typescript-eslint/eslint-plugin 定制规则（warn）
 // ==========================================================
 
-const utils = require("./utils/utils.js");
+const utils = require("@houheaven/eslint-config-helper-core");
 
 module.exports = {
   overrides: [

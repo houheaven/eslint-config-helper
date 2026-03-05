@@ -1,25 +1,23 @@
 
 // ==========================================================
-// @houheaven/eslint-config-helper/format
+// @houheaven/eslint-config-helper/format-vue2
 // ----------------------------------------------------------
-// - Eslint ES5 格式化规则（warn）
-// - Eslint ES6+ 格式化规则（warn）
+// - eslint-plugin-vue 定制规则（warn）
 // ==========================================================
 
-const utils = require("./utils/utils.js");
+const utils = require("@houheaven/eslint-config-helper-core");
 
 module.exports = {
   // 当 eslint-disable 注释配置未使用时，是否报错
   reportUnusedDisableDirectives: false,
   // 继承配置文件
   extends: [
-    // Eslint ES6 支持
-    "./support/es6-support.js",
+    // Vue2 支持
+    "./support/vue2-support.js",
   ],
   // 规则
   rules: {
-    // Eslint ES6 规则（warn）
-    ...utils.getWarnRules("es5"),
-    ...utils.getWarnRules("es6"),
+    // Vue2 规则（warn）
+    ...utils.getWarnRules("vue2"),
   },
 };

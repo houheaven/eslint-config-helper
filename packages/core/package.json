@@ -1,0 +1,7 @@
+{
+  "name": "@houheaven/eslint-config-helper-core",
+  "version": "1.0.0",
+  "description": "Core rules for eslint-config-helper",
+  "private": true,
+  "main": "utils/utils.js"
+}

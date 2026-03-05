@@ -8,13 +8,13 @@ module.exports = {
   },
   // 继承配置文件
   extends: [
-    // "../../lib/javascript-es5.js",
-    "../../lib/javascript-es6.js",
-    "../../lib/import.js",
-    "../../lib/html.js",
-    // "../../lib/format-es5.js",
-    // "../../lib/format-es6.js",
-    // "../../lib/format-import.js",
-    // "../../lib/format-html.js",
+    // "@houheaven/eslint-config-helper/es5",
+    "@houheaven/eslint-config-helper/es6",
+    "@houheaven/eslint-config-helper/import",
+    "@houheaven/eslint-config-helper/html",
+    // "@houheaven/eslint-config-helper/format-es5",
+    // "@houheaven/eslint-config-helper/format-es6",
+    // "@houheaven/eslint-config-helper/format-import",
+    // "@houheaven/eslint-config-helper/format-html",
   ],
 };

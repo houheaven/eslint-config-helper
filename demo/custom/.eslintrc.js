@@ -1,19 +1,19 @@
 
-const { getRules } = require("../../lib/utils/utils.js");
+const { getRules } = require("@houheaven/eslint-config-helper/utils");
 
 module.exports = {
   // 防止 eslint 向上查找配置文件
   root: true,
   // 继承配置文件
   extends: [
-    "../../lib/support/es5-support.js",
-    "../../lib/support/es6-support.js",
-    "../../lib/support/import-support.js",
-    "../../lib/support/typescript-support.js",
-    "../../lib/support/html-support.js",
-    // "../../lib/support/vue2-support.js",
-    // "../../lib/support/vue3-support.js",
-    "../../lib/support/vue3-ts-support.js",
+    "@houheaven/eslint-config-helper/support-es5",
+    "@houheaven/eslint-config-helper/support-es6",
+    "@houheaven/eslint-config-helper/support-import",
+    "@houheaven/eslint-config-helper/support-typescript",
+    "@houheaven/eslint-config-helper/support-html",
+    // "@houheaven/eslint-config-helper/support-vue2",
+    // "@houheaven/eslint-config-helper/support-vue3",
+    "@houheaven/eslint-config-helper/support-vue3-ts",
   ],
   // 定义规则
   rules: {

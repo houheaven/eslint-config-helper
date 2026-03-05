@@ -4,9 +4,9 @@ module.exports = {
   root: true,
   // 继承配置文件
   extends: [
-    "../../lib/javascript-es6.js",
-    "../../lib/import.js",
-    // "../../lib/format-es6.js",
-    // "../../lib/format-import.js",
+    "@houheaven/eslint-config-helper/es6",
+    "@houheaven/eslint-config-helper/import",
+    // "@houheaven/eslint-config-helper/format-es6",
+    // "@houheaven/eslint-config-helper/format-import",
   ],
 };

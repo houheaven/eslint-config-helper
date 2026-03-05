@@ -4,6 +4,29 @@
 > @houheaven/eslint-config-helper
 
 
+## v2.1.0
+
+`发布：2026-03-06`
+<!-- 开发：2026-03-05 -->
+- 项目使用 monorepo 重构
+- 优化：`@houheaven/eslint-config-helper/es5`
+- 新增：`@houheaven/eslint-config-helper/es6`
+- 新增：`@houheaven/eslint-config-helper/typescript`
+- 新增：`@houheaven/eslint-config-helper/import`
+- 新增：`@houheaven/eslint-config-helper/vue2`
+- 新增：`@houheaven/eslint-config-helper/vue3`
+- 新增：`@houheaven/eslint-config-helper/vue3-ts`
+- 新增：`@houheaven/eslint-config-helper/html`
+- 新增：`@houheaven/eslint-config-helper/format-es6`
+- 新增：`@houheaven/eslint-config-helper/format-es5`
+- 新增：`@houheaven/eslint-config-helper/format-typescript`
+- 新增：`@houheaven/eslint-config-helper/format-import`
+- 新增：`@houheaven/eslint-config-helper/format-vue2`
+- 新增：`@houheaven/eslint-config-helper/format-vue3`
+- 新增：`@houheaven/eslint-config-helper/format-html`
+- 新增：`@houheaven/eslint-config-helper/utils`
+
+
 ## v2.0.0
 
 `发布：2026-03-04`
