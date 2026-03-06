@@ -264,24 +264,9 @@ module.exports = {
       exceptions: {},
     }],
 
-    // 禁止出现多行空行
-    // https://zh-hans.eslint.org/docs/latest/rules/no-multiple-empty-lines
-    "no-multiple-empty-lines": ["warn", {
-      max: 2,
-      maxBOF: 1,
-      maxEOF: 1,
-    }],
-
     // 禁用 tab
     "no-tabs": ["error", {
       allowIndentationTabs: false,    // 允许缩进使用 tab
-    }],
-
-    // 禁用行尾空白
-    // 这条规则不允许在行末有尾随空格（空格、制表符和其他 Unicode 空白字符）
-    "no-trailing-spaces": ["warn", {
-      skipBlankLines: true,
-      ignoreComments: false,
     }],
 
     // 禁止属性前有空白

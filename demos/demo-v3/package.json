@@ -1,0 +1,23 @@
+{
+  "name": "demo-v3",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint:es5": "cd es5 && eslint .",
+    "lint:es6": "cd es6 && eslint .",
+    "lint:import": "cd import && eslint .",
+    "lint:typescript": "cd typescript && eslint .",
+    "lint:vue2": "cd vue2 && eslint .",
+    "lint:vue3": "cd vue3 && eslint .",
+    "lint:html": "cd html && eslint .",
+    "lint:custom": "cd custom && eslint ."
+  },
+  "dependencies": {
+    "@houheaven/eslint-config-helper": "file:../../packages/v3-flat"
+  },
+  "devDependencies": {
+    "eslint": "9.39.4",
+    "typescript": "5.9.3"
+  }
+}

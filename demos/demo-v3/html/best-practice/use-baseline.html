@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+  <meta name="description" content="html-eslint test page" />
+  <meta name="author" content="立树" />
+  <title>use-baseline</title>
+</head>
+<body>
+
+  <!-- ✅ 正确示例 -->
+  <h1>这是一个标题</h1>
+  <div></div>
+  <custom-component />
+
+  <!-- ❌ 错误示例 -->
+  <search></search>
+  <div popover>这是一个弹窗</div>
+  <portal src="https://example.com"></portal>
+  <selectlist>
+    <option>选项一</option>
+    <option>选项二</option>
+  </selectlist>
+
+</body>
+</html>

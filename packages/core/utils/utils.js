@@ -9,6 +9,7 @@ const EslintRules = {
     ...require("../rules/eslint/layout-formatting.js").rules,
     ...require("../rules/eslint/possible-errors.js").rules,
     ...require("../rules/eslint/suggestions.js").rules,
+    ...require("../rules/eslint/stylistic.js").rules,
   },
   es6: {
     ...require("../rules/eslint/es6.js").rules,

@@ -1,0 +1,22 @@
+<!-- eslint @html-eslint/no-target-blank: "error" -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+  <meta name="description" content="html-eslint test page" />
+  <meta name="author" content="立树" />
+  <title>no-target-blank</title>
+</head>
+<body>
+
+  <!-- ✅ 正确示例 -->
+  <a target="_blank" href="relative/path/"></a>
+  <a target="_blank" rel="noreferrer" href="http://example.com/"></a>
+
+  <!-- ❌ 错误示例，缺少 rel="noreferrer" 属性 -->
+  <a target="_blank" href="http://example.com/"></a>
+
+</body>
+</html>

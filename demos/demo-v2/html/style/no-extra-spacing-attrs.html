@@ -1,0 +1,42 @@
+<!-- eslint-disable no-tabs -->
+<!-- eslint-disable no-multi-spaces -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+  <meta name="description" content="html-eslint test page" />
+  <meta name="author" content="立树" />
+  <title>no-extra-spacing-attrs</title>
+</head>
+<body>
+
+  <!-- { "enforceBeforeSelfClose": true } -->
+  <img src="foo.png" alt="pic"  />
+  <img src="foo.png" alt="pic"/>
+
+  <!-- { "disallowMissing": true } -->
+  <div id="foo"class="bar"></div>
+
+  <!-- { "disallowTabs": true } -->
+  <div	id="bar"	class="bar"></div>
+
+  <!-- { "disallowInAssignment": true } -->
+  <div id = "boo" class = "bar"></div>
+
+  <!-- an extra space between attributes -->
+  <div foo="foo"  bar="bar"></div>
+
+  <!-- an extra space between tag start and attribute -->
+  <div  foo="foo"></div>
+
+  <!-- an extra space between tag end and attribute -->
+  <div foo="foo" ></div>
+
+  <!-- an extra space between tag start and end -->
+  <div ></div>
+  < div ></ div >
+
+</body>
+</html>

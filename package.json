@@ -3,24 +3,27 @@
   "version": "1.0.0",
   "description": "Eslint 规则助手",
   "author": "立树",
-  "license": "MIT",
   "private": true,
-  "keywords": [
-    "houheaven",
-    "eslint",
-    "eslint-config-helper"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://gitee.com/houheaven/eslint-config-helper.git"
-  },
-  "bugs": {
-    "url": "https://gitee.com/houheaven/eslint-config-helper/issues"
-  },
-  "homepage": "https://gitee.com/houheaven/eslint-config-helper",
   "scripts": {
-    "lint": "eslint .",
-    "lint-fix": "eslint . --fix"
+    "npm-publish": "pnpm changeset publish",
+    "reset": "bash .stuff/reset-project.sh",
+    "demo-v2:es5": "pnpm run -C ./demos/demo-v2 lint:es5",
+    "demo-v2:es6": "pnpm run -C ./demos/demo-v2 lint:es6",
+    "demo-v2:import": "pnpm run -C ./demos/demo-v2 lint:import",
+    "demo-v2:typescript": "pnpm run -C ./demos/demo-v2 lint:typescript",
+    "demo-v2:vue2": "pnpm run -C ./demos/demo-v2 lint:vue2",
+    "demo-v2:vue3": "pnpm run -C ./demos/demo-v2 lint:vue3",
+    "demo-v2:html": "pnpm run -C ./demos/demo-v2 lint:html",
+    "demo-v2:custom": "pnpm run -C ./demos/demo-v2 lint:custom",
+    "demo-v2:eslint": "pnpm run -C ./demos/demo-v2 lint:eslint",
+    "demo-v3:es5": "pnpm run -C ./demos/demo-v3 lint:es5",
+    "demo-v3:es6": "pnpm run -C ./demos/demo-v3 lint:es6",
+    "demo-v3:import": "pnpm run -C ./demos/demo-v3 lint:import",
+    "demo-v3:typescript": "pnpm run -C ./demos/demo-v3 lint:typescript",
+    "demo-v3:vue2": "pnpm run -C ./demos/demo-v3 lint:vue2",
+    "demo-v3:vue3": "pnpm run -C ./demos/demo-v3 lint:vue3",
+    "demo-v3:html": "pnpm run -C ./demos/demo-v3 lint:html",
+    "demo-v3:custom": "pnpm run -C ./demos/demo-v3 lint:custom"
   },
   "devDependencies": {
     "@changesets/cli": "2.30.0"

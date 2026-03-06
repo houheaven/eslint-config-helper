@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+  <meta name="description" content="html-eslint test page" />
+  <meta name="author" content="立树" />
+  <title>attrs-newline</title>
+</head>
+<body>
+
+  <!-- ✅ 正确示例 -->
+  <img class="foo" id="img1" alt="pic" data-custom />
+  <img
+    class="foo"
+    id="img2"
+    alt="pic"
+    data-custom
+  />
+
+  <!-- ❌ 错误示例 -->
+  <div class="foo" id="p">
+    <img class="foo" data-custom data-x1="foo" data-x2="foo" data-x3="foo" data-x4="foo" alt="pic" />
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+  <meta name="description" content="html-eslint test page" />
+  <meta name="author" content="立树" />
+  <title>demo</title>
+  
+  <script>
+    // 规则: quotes
+    // 等级: warn
+
+    var str = 'hello world';
+    var num = 233;
+
+    str = 'hello eslint';
+
+    console.log(str);
+    console.log(num);
+
+
+    // rule: no-fallthrough
+    // level: error
+
+    switch(foo) {
+      case 1:
+        doSomething();
+      case 2:
+        doSomethingElse();
+    }
+  </script>
+</head>
+<body>
+
+  <!--
+    规则: @html-eslint/quotes
+    等级: warn
+  -->
+  
+  <!-- ✅ 正确示例 -->
+  <div id="app"></div>
+  <div data-attr="foo"></div>
+  <div data-attr='containing "double" quotes'></div>
+
+  <!-- ❌ 错误示例 -->
+  <div data-attr='foo'></div>
+
+
+  <!--
+    规则: @html-eslint/id-naming-convention
+    等级: error
+  -->
+  
+  <!-- snake_case -->
+  <div id="foo_bar"></div>
+
+  <!-- camelCase -->
+  <div id="fooBar"></div>
+
+  <!-- PascalCase -->
+  <div id="FooBar"></div>
+
+  <!-- kebab-case -->
+  <div id="foo-bar"></div>
+
+</body>
+</html>

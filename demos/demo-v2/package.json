@@ -1,0 +1,23 @@
+{
+  "name": "demo-v2",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "lint:es5": "eslint ./es5",
+    "lint:es6": "eslint ./es6",
+    "lint:import": "eslint ./import",
+    "lint:typescript": "eslint ./typescript",
+    "lint:vue2": "eslint ./vue2",
+    "lint:vue3": "eslint ./vue3",
+    "lint:html": "eslint ./html",
+    "lint:custom": "eslint ./custom",
+    "lint:eslint": "eslint ./eslint"
+  },
+  "dependencies": {
+    "@houheaven/eslint-config-helper": "file:../../packages/v2-legacy"
+  },
+  "devDependencies": {
+    "eslint": "8.57.1",
+    "typescript": "5.9.3"
+  }
+}

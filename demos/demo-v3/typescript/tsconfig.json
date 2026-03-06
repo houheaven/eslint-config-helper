@@ -1,0 +1,94 @@
+{
+  // 编译目录
+  "include": [
+    "./**/*.ts",
+    // "./typings/**/*",
+  ],
+  // "files": [
+  //   "./src/test/utils/tools.d.ts",
+  //   "./src/test/utils/utils.d.ts",
+  // ],
+  // 不编译的目录、文件
+  "exclude": [
+    "./node_modules",
+    "./src/tsconfig/not-compile.ts"
+  ],
+  // 编译器选项
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+
+    /* Basic Options */
+    "incremental": true,                            /* 增量编译，增量编译是一种编译优化技术，它只重新编译那些自上次编译以来已经发生变化的文件，而不是每次都重新编译整个项目 */
+    // "tsBuildInfoFile": "",                       /* 指定存储增量编译信息的文件（默认为 `outDir`/tsconfig.tsbuildinfo） */
+    "diagnostics": true,                            /* 显示编译器诊断信息 */
+    // "useDefineForClassFields": false,
+    "target": "ESNEXT",                             /* 指定编译目标语言的 ECMA 版本，'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', 'ESNEXT' ... */
+    "module": "ESNEXT",                             /* 指定模块代码生成器，'None', 'CommonJS', 'AMD', 'UMD', 'ES6', 'ES2020', 'ESNext' ... */
+    // "lib": ["DOM", "ES2015", "ScriptHost"],      /* 指定编译时包含的库文件（声明文件） */
+    "allowJs": true,                                /* 是否对 js 文件进行编译 */
+    "checkJs": false,                               /* 是否检查 js 文件代码符合语法规范 */
+    // "rootDir": "./src",                          /* 指定输出文件的根目录，用于控制输出目录结构 --outDir */
+    "outDir": "./dist",                             /* 指定输出目录 */
+    "declaration": false,                           /* 生成声明文件，开启后会自动生成声明文件 '.d.ts' */
+    // "declarationDir": "./dist/typings",          /* 指定声明文件的输出目录 */
+    // "declarationMap": false,                     /* 为每个声明文件生成 sourceMap 文件 */
+    // "emitDeclarationOnly": false,                /* 只生成声明文件，不生成 js 文件 */
+    // "outFile": "./dist/lib.js",                  /* 输出一个文件（module 为 amd、system 时生效） */
+    // "composite": true,                           /* 是否编译构建引用项目，Enable project compilation */
+    "removeComments": true,                         /* 移除注释 */
+    "noEmit": false,                                /* 不生成编译后的文件（场景：只想校验 ts 语法） */
+    "noEmitOnError": true,                          /* 语法校验错误时，不生成编译文件 */
+    // "importHelpers": true,                       /* Import emit helpers from 'tslib'. */
+    "downlevelIteration": true,                     /* 降级遍历器实现， 当 target 为 'ES5' 或 'ES3' 时，为 'for-of'、'spread'、'destructuring' 中的迭代器提供完全支持 */
+    // "isolatedModules": true,                     /* 指定是否将每个文件作为单独的模块，Transpile each file as a separate module (similar to 'ts.transpileModule'). */
+    // "jsx": "preserve",                           /* 指定 JSX 代码生成器 'preserve', 'react-native', 'react', 'react-jsx' or 'react-jsxdev'. */
+    // "jsxFactory": "React.createElement",
+
+    /* Strict Type-Checking Options */
+    "strict": true,                                 /* 所有严格检查的总开关（建议打开） */
+    // "noImplicitAny": true,                       /* 不允许隐式的 any 类型（未做类型声明，皆为 any） */
+    // "strictNullChecks": true,                    /* 严格的检查空值（null） */
+    // "strictFunctionTypes": true,                 /* 不允许函数参数双向协变 */
+    // "strictBindCallApply": true,                 /* 严格的 'bind'、'call'、'apply' 检查 */
+    // "strictPropertyInitialization": false,       /* 类的实例属性必须初始化 */
+    // "noImplicitThis": false,                     /* 不允许 this 有隐式的 any 类型 */
+    // "alwaysStrict": true,                        /* 设置编译后的文件是否使用严格模式，在代码中注入 "use strict" */
+
+    /* Additional Checks */
+    // "noUnusedLocals": true,                      /* 用于检查是否存在定义后未使用的变量（只提示不报错） */
+    // "noUnusedParameters": true,                  /* 用于检查是否存在定义后未使用的函数参数（只提示不报错） */
+    // "noImplicitReturns": true,                   /* 用于检查函数是否有返回值（true：函数没有返回值则会提示） */
+    // "noFallthroughCasesInSwitch": true,          /* 防止 switch 语句贯穿（即如果没有 break 语句后面不会执行） */
+    // "noUncheckedIndexedAccess": true,            /* Include 'undefined' in index signature results */
+    // "noPropertyAccessFromIndexSignature": true,  /* Require undeclared properties from index signatures to use element accesses. */
+
+    /* Module Resolution Options */
+    // "moduleResolution": "node",                  /* 指定模块解析策略：'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    // "baseUrl": "./",                             /* 解析非相对模块的基本目录，会使用 baseUrl 作为 url 路径，默认是当前目录 */
+    // "paths": {                                   /* 路径别名，相对于 'baseUrl' */
+    //   "@/*": ["./src/*"],
+    // },
+    // "rootDirs": [],                              /* List of root folders whose combined content represents the structure of the project at runtime. */
+    "typeRoots": ["./node_modules/@types", "./typings"],     /* 用来指定类型声明文件（夹）的路径列表 */
+    // "types": [],                                 /* 指定需要包含的模块，Type declaration files to be included in compilation. */
+    // "allowSyntheticDefaultImports": true,        /* 指定允许从没有默认导出的模块中默认导入，Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
+    "esModuleInterop": true,                        /* 通过为导入内容创建命名空间，实现 CommonJS 和 ES 模块之间的互操作性，Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+    // "preserveSymlinks": true,                    /* 不把符号链接解析为真实路径，具体可以了解下 webpack 和 nodejs 的 symlinks 相关知识，Do not resolve the real path of symlinks. */
+    // "allowUmdGlobalAccess": true,                /* Allow accessing UMD globals from modules. */
+
+    /* Source Map Options */
+    // "sourceRoot": "",                            /* Specify the location where debugger should locate TypeScript files instead of source locations. */
+    // "mapRoot": "",                               /* Specify the location where debugger should locate map files instead of generated locations. */
+    // "sourceMap": false,                          /* 生成目标文件的 sourceMap '.map' */
+    // "inlineSourceMap": true,                     /* Emit a single file with source maps instead of having a separate file. */
+    // "inlineSources": true,                       /* Emit the source alongside the sourcemaps within a single file; requires '--inlineSourceMap' or '--sourceMap' to be set. */
+
+    /* Experimental Options */
+    "experimentalDecorators": true,                 /* 是否启用实验性的 ES7 装饰器特性 */
+    "emitDecoratorMetadata": true,                  /* 是否启用为装饰器提供元数据的支持，关于 ES6 新标准元数据，可以通过 Reflect 提供的静态方法获取元数据，如果需要使用 Reflect 的方法，需要引入 ES2015.Reflect 库 */
+
+    /* Advanced Options */
+    "skipLibCheck": true,                           /* Skip type checking of declaration files. */
+    "forceConsistentCasingInFileNames": true        /* Disallow inconsistently-cased references to the same file. */
+  }
+}

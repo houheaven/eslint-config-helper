@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+  <meta name="description" content="html-eslint test page" />
+  <meta name="author" content="立树" />
+  <title>no-aria-hidden-on-focusable</title>
+</head>
+<body>
+
+  <!-- ✅ 正确示例 -->
+  <div aria-hidden="true"></div>
+  <img aria-hidden="true" alt="pic" />
+  <a aria-hidden="false" href="#"></a>
+  <button aria-hidden="true" tabindex="-1"></button>
+  <a href="/"></a>
+  <div aria-hidden="true"><a href="#"></a></div>
+  <div aria-hidden="true" contenteditable="false"></div>
+
+  <!-- ❌ 错误示例 -->
+  <div aria-hidden="true" tabindex="0"></div>
+  <input aria-hidden="true" />
+  <a href="/" aria-hidden="true"></a>
+  <button aria-hidden="true"></button>
+  <textarea aria-hidden="true"></textarea>
+  <div aria-hidden="true" contenteditable></div>
+  <div aria-hidden="true" contenteditable="true"></div>
+  <summary aria-hidden="true"></summary>
+
+</body>
+</html>

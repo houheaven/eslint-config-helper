@@ -1,7 +1,7 @@
 
 packages:
   - "packages/core"
-  - "packages/legacy"
-  - "packages/flat"
-  - "demo"
-  - "demo-flat"
+  - "packages/v2-legacy"
+  - "packages/v3-flat"
+  - "demos/demo-v2"
+  - "demos/demo-v3"
