@@ -5,6 +5,9 @@
   "author": "立树",
   "license": "MIT",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "houheaven",
     "eslint",
