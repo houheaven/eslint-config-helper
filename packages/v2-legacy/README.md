@@ -19,7 +19,11 @@
 ## 安装
 
 ```sh
-npm install --dev @houheaven/eslint-config-helper
+# 方式一
+npm install --dev @houheaven/eslint-config-helper@legacy
+
+# 方式二
+npm install --dev @houheaven/eslint-config-helper@v2
 ```
 
 ## 用法

@@ -2262,11 +2262,11 @@ snapshots:
       '@typescript-eslint/eslint-plugin': 8.56.1(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1)(typescript@5.9.3)
       '@typescript-eslint/parser': 8.56.1(eslint@8.57.1)(typescript@5.9.3)
       eslint: 8.57.1
-      eslint-import-resolver-alias: 1.1.2(eslint-plugin-import@2.32.0)
+      eslint-import-resolver-alias: 1.1.2(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-webpack@0.13.2(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1))(webpack@5.105.4))(eslint@8.57.1))
       eslint-import-resolver-node: 0.3.6
-      eslint-import-resolver-webpack: 0.13.2(eslint-plugin-import@2.32.0)(webpack@5.105.4)
+      eslint-import-resolver-webpack: 0.13.2(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1))(webpack@5.105.4)
       eslint-plugin-html: 8.1.4
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1)
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-webpack@0.13.2(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1))(webpack@5.105.4))(eslint@8.57.1)
       eslint-plugin-vue: 9.33.0(eslint@8.57.1)
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
@@ -3163,6 +3163,10 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
+  eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-webpack@0.13.2(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1))(webpack@5.105.4))(eslint@8.57.1)):
+    dependencies:
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-webpack@0.13.2(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1))(webpack@5.105.4))(eslint@8.57.1)
+
   eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.32.0):
     dependencies:
       eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-webpack@0.13.2)(eslint@8.57.1)
@@ -3182,6 +3186,24 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  eslint-import-resolver-webpack@0.13.2(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1))(webpack@5.105.4):
+    dependencies:
+      array-find: 1.0.0
+      debug: 3.2.7
+      enhanced-resolve: 0.9.1
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-webpack@0.13.2(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1))(webpack@5.105.4))(eslint@8.57.1)
+      find-root: 1.1.0
+      has: 1.0.4
+      interpret: 1.4.0
+      is-core-module: 2.16.1
+      is-regex: 1.2.1
+      lodash: 4.17.23
+      resolve: 1.22.11
+      semver: 5.7.2
+      webpack: 5.105.4
+    transitivePeerDependencies:
+      - supports-color
+
   eslint-import-resolver-webpack@0.13.2(eslint-plugin-import@2.32.0)(webpack@5.105.4):
     dependencies:
       array-find: 1.0.0
@@ -3197,6 +3219,17 @@ snapshots:
       resolve: 1.22.11
       semver: 5.7.2
       webpack: 5.105.4
+    transitivePeerDependencies:
+      - supports-color
+
+  eslint-module-utils@2.12.1(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-webpack@0.13.2(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1))(webpack@5.105.4))(eslint@8.57.1):
+    dependencies:
+      debug: 3.2.7
+    optionalDependencies:
+      '@typescript-eslint/parser': 8.56.1(eslint@8.57.1)(typescript@5.9.3)
+      eslint: 8.57.1
+      eslint-import-resolver-node: 0.3.9
+      eslint-import-resolver-webpack: 0.13.2(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1))(webpack@5.105.4)
     transitivePeerDependencies:
       - supports-color
 
@@ -3225,7 +3258,7 @@ snapshots:
     dependencies:
       htmlparser2: 10.1.0
 
-  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-webpack@0.13.2)(eslint@8.57.1):
+  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-webpack@0.13.2(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1))(webpack@5.105.4))(eslint@8.57.1):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
@@ -3236,7 +3269,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.1(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-webpack@0.13.2)(eslint@8.57.1)
+      eslint-module-utils: 2.12.1(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-webpack@0.13.2(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1))(webpack@5.105.4))(eslint@8.57.1)
       hasown: 2.0.2
       is-core-module: 2.16.1
       is-glob: 4.0.3
@@ -3254,7 +3287,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1):
+  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.56.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-webpack@0.13.2)(eslint@8.57.1):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9

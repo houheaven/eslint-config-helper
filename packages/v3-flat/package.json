@@ -6,10 +6,6 @@
   "license": "MIT",
   "private": false,
   "type": "module",
-  "publishConfig": {
-    "access": "public",
-    "tag": "next"
-  },
   "keywords": [
     "houheaven",
     "eslint",

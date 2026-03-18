@@ -5,7 +5,8 @@
   "author": "立树",
   "private": true,
   "scripts": {
-    "npm-publish": "pnpm changeset publish",
+    "publish-v2": "cd packages/v2-legacy && npm publish --tag legacy",
+    "publish-v3": "cd packages/v3-flat && npm publish --tag latest",
     "reset": "bash .stuff/reset-project.sh",
     "demo-v2:es5": "pnpm run -C ./demos/demo-v2 lint:es5",
     "demo-v2:es6": "pnpm run -C ./demos/demo-v2 lint:es6",
