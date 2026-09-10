@@ -5,6 +5,7 @@ import typescript from "./lib/typescript.js";
 import html from "./lib/html.js";
 import vue2 from "./lib/vue2.js";
 import vue3 from "./lib/vue3.js";
+import react from "./lib/react.js";
 
 export default {
   configs: {
@@ -14,6 +15,7 @@ export default {
     ...html.configs,
     ...vue2.configs,
     ...vue3.configs,
+    ...react.configs,
   },
   supports: {
     ...es5.supports,
@@ -22,5 +24,6 @@ export default {
     ...html.supports,
     ...vue2.supports,
     ...vue3.supports,
+    ...react.supports,
   },
 };

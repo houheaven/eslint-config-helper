@@ -2,7 +2,15 @@
 // 统计数据
 // 使用方式：node summary.js
 
-const allRules = require("./rules/html/accessibility.js").rules;
+const allRules = {
+  ...require("./rules/react/_deprecated.js").rules,
+  ...require("./rules/react/class-component.js").rules,
+  ...require("./rules/react/dom.js").rules,
+  ...require("./rules/react/fixable.js").rules,
+  ...require("./rules/react/jsx.js").rules,
+  ...require("./rules/react/prop-types.js").rules,
+  ...require("./rules/react/suggestion.js").rules,
+};
 
 // 统计函数
 function countRulesByLevel(rulesObj) {

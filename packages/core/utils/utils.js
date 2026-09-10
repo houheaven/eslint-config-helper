@@ -53,6 +53,15 @@ const EslintRules = {
     ...require("../rules/vue/vue3-strongly-recommended.js").rules,
     ...require("../rules/vue/vue3-uncategorized.js").rules,
   },
+  react: {
+    ...require("../rules/react/_deprecated.js").rules,
+    ...require("../rules/react/fixable.js").rules,
+    ...require("../rules/react/suggestion.js").rules,
+    ...require("../rules/react/jsx.js").rules,
+    ...require("../rules/react/class-component.js").rules,
+    ...require("../rules/react/prop-types.js").rules,
+    ...require("../rules/react/dom.js").rules,
+  },
 };
 
 
@@ -73,6 +82,8 @@ function getRules(rules) {
     ...EslintRules.vue,
     ...EslintRules.vue2,
     ...EslintRules.vue3,
+    // react 规则
+    ...EslintRules.react,
   };
   const ValidRules = {};
   const InvalidRules = {};
@@ -136,6 +147,11 @@ function getWarnRules(type) {
       rules = {
         ...EslintRules.vue,
         ...EslintRules.vue3,
+      };
+      break;
+    case "react":
+      rules = {
+        ...EslintRules.react,
       };
       break;
   }
