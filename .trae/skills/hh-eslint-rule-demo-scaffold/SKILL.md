@@ -2,7 +2,7 @@
 name: "hh-eslint-rule-demo-scaffold"
 description: "为一份 ESLint 规则文件（如 packages/core/rules/react/jsx.js）批量生成对应的 demo 示例：每条规则一个 {ruleId}.jsx/.ts，包含正确/错误示例与备注，跑 eslint 校验后确保只报目标规则错误。当用户提到生成规则示例、demo 示例、创建 demo 文件夹、按规则名建示例等场景时触发。"
 author: 立树
-version: 1.0.0
+version: 1.2.1
 created: 2026-09-11
 updated: 2026-09-11
 ---
@@ -15,10 +15,11 @@ updated: 2026-09-11
 
 对于一份规则文件（比如 `packages/core/rules/react/jsx.js`），本 Skill 会：
 
-1. 在 `demos/demo-v3/<lang>-<ns>/<维度名>/` 下创建同名文件夹；
+1. 在**用户指定**的 `<demoRoot>/<维度名>/` 下创建同名文件夹（`demoRoot` 必须显式给出，见 Step 1）；
 2. 为文件中每条规则生成 `{ruleId}.<ext>` 示例文件，包含 **✅ 正确示例 + ❌ 错误示例 + 备注**；
 3. 立刻用 ESLint 校验生成的示例，确认 IDE 打开时**只出现目标规则的报错**；
-4. 对干扰规则一律用 `/* eslint-disable <ruleId> */`（每条规则一行）关闭，风格与 `eslint-disable-style-unifier` 一致。
+4. 对干扰规则一律用 `/* eslint-disable <ruleId> */`（每条规则一行）关闭，风格与 `eslint-disable-style-unifier` 一致；
+5. 全部示例文件生成并通过 ESLint 校验后，**调用 `hh-eslint-disable-style-unifier` Skill** 对本批 demo 目录做统一的风格终检，保证落盘的 disable 指令完全符合「每条规则单独一行」的规范。
 
 ## 何时触发
 
@@ -26,15 +27,48 @@ updated: 2026-09-11
 - 用户提供一份规则文件路径，要求「每条规则做一个示例」；
 - 上一个 Skill `eslint-plugin-rule-scaffold` 刚跑完，需要顺势生成 demo。
 
+> 触发后**第一件事**永远是走 Step 1 的前置澄清，尤其是确认 `demoRoot` 和 `ext`；缺参 / 有歧义就当场向用户询问，不要贸然开工。
+
 ## 输入参数
 
-| 参数              | 示例                                               | 说明                                   |
-| ----------------- | -------------------------------------------------- | -------------------------------------- |
-| `ruleFile`        | `packages/core/rules/react/jsx.js`                 | 规则源文件（供读取规则清单和推荐配置） |
-| `demoRoot`        | `demos/demo-v3/react-jsx`                          | demo 根目录；不存在时创建              |
-| `dimensionFolder` | 由 `ruleFile` 文件名派生（如 `jsx`、`fixable`）    | 在 `demoRoot` 下的分组子目录           |
-| `ext`             | `.jsx` / `.tsx` / `.ts` / `.js`                    | 示例文件后缀                           |
-| `ruleShortId`     | 由 `ruleId` 派生（如 `react/jsx-key` → `jsx-key`） | 用作文件名                             |
+| 参数              | 必填 | 示例                                               | 说明                                                        |
+| ----------------- | ---- | -------------------------------------------------- | ----------------------------------------------------------- |
+| `ruleFile`        | 是   | `packages/core/rules/react/jsx.js`                 | 规则源文件（供读取规则清单和推荐配置）                      |
+| `demoRoot`        | 是   | `demos/demo-v3/react-jsx`                          | demo 根目录；**必须由用户显式提供**，不允许从 `ruleFile` 猜 |
+| `ext`             | 是   | `.jsx` / `.tsx` / `.ts` / `.js`                    | 示例文件后缀；**存在歧义时必须先向用户澄清**                |
+| `dimensionFolder` | 否   | 由 `ruleFile` 文件名派生（如 `jsx`、`fixable`）    | 在 `demoRoot` 下的分组子目录                                |
+| `ruleShortId`     | 否   | 由 `ruleId` 派生（如 `react/jsx-key` → `jsx-key`） | 用作文件名                                                  |
+
+## Step 1：前置澄清（必须最先做）
+
+在动手生成任何文件之前，必须先完成以下检查；任一项不满足就立即停下来向用户提问，**不要**用默认值/推断值直接开工。
+
+1. **`demoRoot` 必须由用户在**本次会话消息**中显式提供**
+   - 唯一合法来源：用户在当前触发本 Skill 的这一轮（或紧邻的追问轮）里，用自然语言 / 路径明确指定的 demo 目录。
+   - **禁止的推断来源**（命中任何一条都必须停下询问，不允许沿用）：
+     - `context://memory/**` 里的 user profile、project memory、recent topics；
+     - 历史对话摘要、conversations_metadata、上一轮 session 结论；
+     - 从 `ruleFile` 的路径反推（例如看到 `packages/core/rules/react/*.js` 就默认写到 `demos/demo-v3/react-jsx`）；
+     - `demoRoot` 下已经存在同名子目录（哪怕里面已经有历史 demo 文件）。
+   - 用户只给了规则文件（如 `packages/core/rules/react/suggestion.js`）而**没有**在本次消息里给出 demo 目录时：
+     - 停止执行，用一句话向用户询问：
+       > 请提供本次要生成到的 demo 目录（例如 `demos/demo-v3/react-jsx`），我不再自行推断。
+     - 得到明确目录后再继续。**在得到答复前，不允许 Read/Write demo 目录下的任何文件，也不允许跑 ESLint 校验。**
+   - 允许的等价表达：完整路径（`/Users/.../demos/demo-v3/react-jsx`）、仓库相对路径（`demos/demo-v3/react-jsx`）；均需能唯一定位一个已存在或将新建的目录。
+
+2. **文件类型（`ext`）歧义时必须澄清**
+   - 很多 ESLint 底层规则本身**语言无关**（如 `eslint-plugin-react` 里的规则同时适用于 `.jsx` / `.tsx`；`@typescript-eslint/*` 同时适用于 `.ts` / `.tsx`；`eslint` 核心规则可能既写 `.js` 也写 `.ts`）。
+   - 判定顺序：
+     1. 用户在指令里显式指定了后缀（例："我要 tsx 版本"）→ 直接采用。
+     2. `demoRoot` 目录已存在同规则集的历史示例文件（如 `demos/demo-v3/react-jsx/**/*.jsx`）→ **沿用最多的那种**后缀，并把结论一句话回执用户，允许其纠正。
+     3. 目录下**无参考**、且规则集在多种语言下都成立 → 使用 `AskUserQuestion` 让用户在候选后缀里挑；候选至少覆盖：
+        - React 系：`.jsx` / `.tsx`
+        - TS 系：`.ts` / `.tsx`
+        - 通用 JS：`.js` / `.ts`
+   - 澄清得到答案前**不要**创建任何文件。
+
+3. **规则清单为空要提前止损**
+   - Read 完 `ruleFile` 之后如果 `Object.keys(rules).length === 0`，直接回执用户「无规则可生成」，不要生成占位文件。
 
 ## 目录 & 命名约定
 
@@ -42,12 +76,14 @@ updated: 2026-09-11
 - 文件名：`<ruleShortId><ext>`（去掉命名空间前缀，只保留 `/` 之后的部分，如 `react/jsx-key.jsx` → `jsx-key.jsx`）；如果 ruleId 本身包含 `/` 多段（罕见），把 `/` 替换成 `--`。
 - `demoRoot` 下必须有一个 `eslint.config.js`，仅为该目录范围开启目标插件（可能需要 `tsconfig.json`）；参考 `demos/demo-v3/react-jsx/eslint.config.js`。
 
-## Step 1：读取规则清单
+## Step 2：读取规则清单
+
+> 前置条件：Step 1 已经拿到 `demoRoot` 与 `ext` 的确定值；未落实之前不要进入本步。
 
 - Read `ruleFile`，解析出 `Object.keys(module.exports.rules)` 与它们的推荐配置；
 - 同时抽出注释中的「官方推荐 / options / 社区最佳 / 文档链接」段落，用于 demo 头部注释。
 
-## Step 2：单个示例文件模板
+## Step 3：单个示例文件模板
 
 ```jsx
 
@@ -84,7 +120,7 @@ export { Ok, Bad };
 - 除非该规则专门用于 non-JSX 场景，否则保留 `import React from "react";`；
 - 对于 deprecated 规则，注释里要写清「替代规则」，并在 inline override 里显式打开被废弃的原规则。
 
-## Step 3：立刻校验
+## Step 4：立刻校验
 
 对每个刚生成的文件跑：
 
@@ -99,7 +135,7 @@ npx eslint <demoRoot>/<dimensionFolder>/<ruleShortId><ext> --config <demoRoot>/e
 
 绝对不要一次性 `/* eslint-disable */` 关全部 —— 会把目标规则也一并关掉。
 
-## Step 4：干扰规则清单（可继承）
+## Step 5：干扰规则清单（可继承）
 
 以下规则在 demo 里非常常见，需要一开始就默认在文件头部关闭，避免逐个补：
 
@@ -113,9 +149,9 @@ npx eslint <demoRoot>/<dimensionFolder>/<ruleShortId><ext> --config <demoRoot>/e
 /* eslint-disable object-curly-newline */
 ```
 
-具体保留哪些由 Step 3 的实际输出决定。同一个规则不要重复出现。
+具体保留哪些由 Step 4 的实际输出决定。同一个规则不要重复出现。
 
-## Step 5：任务编排
+## Step 6：任务编排
 
 一个维度文件下的规则可能高达 20+ 条。可用以下方式并发：
 
@@ -126,14 +162,36 @@ npx eslint <demoRoot>/<dimensionFolder>/<ruleShortId><ext> --config <demoRoot>/e
 Prompt 骨架（供派发时套用）：
 
 > 你在 `demos/demo-v3/<...>/<dimensionFolder>/` 下为下列 rule 各生成一个 `<ruleShortId><ext>` 示例文件：<rule 列表>。
-> 每个文件遵循 SKILL.md Step 2 的模板；生成完立即 `npx eslint <文件路径>` 校验，只允许出现目标规则的报错，其余全部通过 `/* eslint-disable <ruleId> */`（每条一行）关闭。
+> 每个文件遵循 SKILL.md Step 3 的模板；生成完立即 `npx eslint <文件路径>` 校验，只允许出现目标规则的报错，其余全部通过 `/* eslint-disable <ruleId> */`（每条一行）关闭。
 > 最终回执格式：每条规则 → 校验结果（error 数 & 命中的 ruleId 列表）。
 
-## Step 6：交付物
+## Step 7：调用 `hh-eslint-disable-style-unifier` 做风格终检
+
+> 前置条件：Step 4 的 ESLint 校验对**所有**新生成的示例文件都通过（每个文件仅报目标规则）。未全部通过前不要进入本步。
+
+- 触发方式：使用 `Skill` 工具调用 `hh-eslint-disable-style-unifier`（若不可用则退化到手动逐文件复核，参考该 Skill 的落地规范）；
+- 检查范围：本次新建/新写入的目录，即 `<demoRoot>/<dimensionFolder>/`；不要顺手改动同级其它已有 demo 目录；
+- 目标风格（与该 Skill 强绑定）：
+  - 把 `/* eslint <ruleId>: "off" */` 与合并式 `/* eslint-disable a, b */` 全部改写为**每条规则一行 `/* eslint-disable <ruleId> */`**；
+  - 保留 Step 3 顶部的 `/* eslint <ruleId>: [...] */` inline override（非 `off`，用于打开目标规则），不能被这一步误删；
+  - 保留 `/* eslint-disable-next-line <ruleId> */` 这类行级临时注释；
+- 二次校验：Skill 跑完后立即再执行一次
+  ```bash
+  npx eslint <demoRoot>/<dimensionFolder>/ --report-unused-disable-directives --format=stylish
+  ```
+  必须满足：错误列表仅剩「目标规则」，且没有 `Unused eslint-disable directive` 警告；如果出现 `Unused eslint-disable directive`，回到 Step 4 删掉多余的 disable，然后重跑本 Step。
+- 边界与坑：
+  - **不要靠 IDE 诊断快照做判定**：IDE 有可能显示 `more diagnostics are truncated`，会漏警告；一定要走 CLI 全量校验；
+  - **不要合并新 demo 与旧 demo 目录一起跑**：会把不相关的旧文件也改动，扩大 review 范围；
+  - **不要跑 `--fix`**：本步只做「风格重排 + 校验」，不要联动 autofix；
+  - `.vscode/settings.json` 中的 `source.fixAll.eslint` 若为 `explicit`/`always`，需要提示用户在人工检查阶段临时关掉，避免保存时 autofix 覆盖本 Skill 的产出（可复用 `eslint-disable-style-unifier` 的现成告警语）。
+
+## Step 8：交付物
 
 - [ ] `<demoRoot>/<dimensionFolder>/*.jsx`（每条规则一个文件）
 - [ ] 每个文件 ESLint 校验结果为「只报目标规则」
 - [ ] 顶部 `/* eslint-disable */` 指令风格统一（每条一行，遵循 `eslint-disable-style-unifier`）
+- [ ] Step 7 已调用 `hh-eslint-disable-style-unifier` 做过终检，且 `--report-unused-disable-directives` 全量校验无遗留警告
 - [ ] 回执列出：本次生成的文件数、跳过或有异常的文件（如需人工介入）
 
 ## 边界与坑
