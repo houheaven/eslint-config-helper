@@ -5,6 +5,8 @@
 </template>
 
 <script>
+  /* eslint-disable vue/require-expose */
+  /* eslint-disable vue/no-unused-properties */
   export default {
     name: "demo",
     computed: {

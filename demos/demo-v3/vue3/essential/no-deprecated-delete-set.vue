@@ -1,6 +1,7 @@
 
 <!-- eslint-disable no-undef -->
 <!-- eslint-disable import/no-unresolved -->
+<!-- eslint-disable vue/require-expose -->
 
 <script>
   import { set, del } from "vue";

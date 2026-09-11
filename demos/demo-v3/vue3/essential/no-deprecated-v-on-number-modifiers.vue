@@ -1,5 +1,6 @@
 
 <!-- eslint-disable vue/v-on-style -->
+<!-- eslint-disable vue/v-on-handler-style -->
 
 <template>
   <!-- ✓ GOOD -->

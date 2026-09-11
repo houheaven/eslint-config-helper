@@ -1,5 +1,6 @@
 
 <!-- eslint-disable no-empty-function -->
+<!-- eslint-disable vue/require-expose -->
 
 <script>
   export default {

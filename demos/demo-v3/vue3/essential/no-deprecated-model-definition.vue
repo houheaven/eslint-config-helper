@@ -1,5 +1,6 @@
 
 <!-- eslint-disable no-undef -->
+<!-- eslint-disable vue/require-expose -->
 
 <script>
   export default defineComponent({
