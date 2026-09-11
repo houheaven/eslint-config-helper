@@ -127,9 +127,9 @@ module.exports = {
     // ----------------------------------------------------------
     // 官方推荐：无
     // options: { ignorePureComponents: true }（PureComponent 不强制）
-    // 社区最佳：warn（Airbnb 采用 warn，避免存量 class 组件被迫全改）
+    // 社区最佳：error
     //   - 官方文档：https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
-    "react/prefer-stateless-function": ["warn", { ignorePureComponents: true }],
+    "react/prefer-stateless-function": ["error", { ignorePureComponents: true }],
 
     // render 必须显式 return
     // ----------------------------------------------------------
@@ -140,9 +140,9 @@ module.exports = {
     // ----------------------------------------------------------
     // 官方推荐：无
     // options: { order: ["static-methods", "lifecycle", "everything-else", "render"] }（默认）
-    // 社区最佳：Airbnb 使用默认 order；本项目改为 warn 减少存量文件压力
+    // 社区最佳：error
     //   - 官方文档：https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
-    "react/sort-comp": "warn",
+    "react/sort-comp": "error",
 
     // state 必须在 constructor 中初始化 / 或字段初始化
     // ----------------------------------------------------------

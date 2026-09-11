@@ -36,19 +36,17 @@ module.exports = {
     // 禁止相邻内联元素（可能被搜索引擎/屏幕阅读器合并）
     // ----------------------------------------------------------
     // 官方推荐：无
-    // 社区最佳：["warn"]
-    //   - 对内联元素并列的判定较激进，Airbnb 用 warn 而非 error
+    // 社区最佳：["error"]
     //   - 官方文档：https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-adjacent-inline-elements.md
-    "react/no-adjacent-inline-elements": "warn",
+    "react/no-adjacent-inline-elements": "error",
 
     // 禁止用数组 index 作为 key
     // ----------------------------------------------------------
     // 官方推荐：无
-    // 社区最佳：["warn"]
+    // 社区最佳：["error"]
     //   - 极少数场景（静态、只增不删且不重排的列表）用 index 是合理的
-    //   - Airbnb / Next.js 都以 warn 出现
     //   - 官方文档：https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md
-    "react/no-array-index-key": "warn",
+    "react/no-array-index-key": "error",
 
     // 禁止将 children 通过 prop 传入
     // ----------------------------------------------------------
@@ -62,11 +60,10 @@ module.exports = {
     // 禁止使用 dangerouslySetInnerHTML
     // ----------------------------------------------------------
     // 官方推荐：无
-    // 社区最佳：["warn"]
-    //   - 有合法场景（渲染富文本），但要人工确认安全，warn 提醒即可
-    //   - Airbnb / Next.js 都用 warn
+    // 社区最佳：["error"]
+    //   - 有合法场景（渲染富文本）
     //   - 官方文档：https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-danger.md
-    "react/no-danger": "warn",
+    "react/no-danger": "error",
 
     // dangerouslySetInnerHTML 与 children 不能共存
     // ----------------------------------------------------------
