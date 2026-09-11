@@ -11,13 +11,17 @@
     "lint:vue2": "cd vue2 && eslint .",
     "lint:vue3": "cd vue3 && eslint .",
     "lint:html": "cd html && eslint .",
-    "lint:custom": "cd custom && eslint ."
+    "lint:custom": "cd custom && eslint .",
+    "lint:react-jsx": "cd react-jsx && eslint .",
+    "lint:react-tsx": "cd react-tsx && eslint ."
   },
   "dependencies": {
     "@houheaven/eslint-config-helper": "file:../../packages/v3-flat"
   },
   "devDependencies": {
+    "@types/react": "^19.3.0",
     "eslint": "9.39.4",
+    "react": "^19.3.0",
     "typescript": "5.9.3"
   }
 }
