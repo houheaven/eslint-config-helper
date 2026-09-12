@@ -13,7 +13,8 @@
     "lint:html": "cd html && eslint .",
     "lint:custom": "cd custom && eslint .",
     "lint:react-jsx": "cd react-jsx && eslint .",
-    "lint:react-tsx": "cd react-tsx && eslint ."
+    "lint:react-tsx": "cd react-tsx && eslint .",
+    "lint:react-hooks-tsx": "cd react-hooks-tsx && eslint ."
   },
   "dependencies": {
     "@houheaven/eslint-config-helper": "file:../../packages/v3-flat"
