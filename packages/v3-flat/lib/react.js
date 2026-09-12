@@ -53,6 +53,7 @@ const supportReactJsxConfig = {
     // React 规则
     ...supportReactJsx.rules,
     ...utils.rules.react,
+    ...utils.rules.reactHooks,
   },
 };
 
@@ -80,6 +81,7 @@ const supportReactTsxConfig = {
     // React 规则
     ...supportReactTsx.rules,
     ...utils.rules.react,
+    ...utils.rules.reactHooks,
     // @typescript-eslint/eslint-plugin 规则
     ...utils.rules.typescript,
   },

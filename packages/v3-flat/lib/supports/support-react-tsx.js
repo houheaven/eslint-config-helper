@@ -9,11 +9,13 @@ import globals from "globals";
 import pluginStylistic from "@stylistic/eslint-plugin";
 import pluginTs from "@typescript-eslint/eslint-plugin";
 import pluginReact from "eslint-plugin-react";
+import pluginReactHooks from "eslint-plugin-react-hooks";
 import parserTs from "@typescript-eslint/parser";
 
 const supportReactTsx = {
   plugins: {
     "react": pluginReact,
+    "react-hooks": pluginReactHooks,
     "@typescript-eslint": pluginTs,
     "@stylistic": pluginStylistic,
   },

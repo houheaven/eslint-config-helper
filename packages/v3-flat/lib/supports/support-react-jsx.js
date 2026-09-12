@@ -8,10 +8,12 @@
 import globals from "globals";
 import pluginStylistic from "@stylistic/eslint-plugin";
 import pluginReact from "eslint-plugin-react";
+import pluginReactHooks from "eslint-plugin-react-hooks";
 
 const supportReactJsx = {
   plugins: {
     "react": pluginReact,
+    "react-hooks": pluginReactHooks,
     "@stylistic": pluginStylistic,
   },
   languageOptions: {
