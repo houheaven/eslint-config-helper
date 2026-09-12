@@ -24,7 +24,10 @@
     "demo-v3:vue2": "pnpm run -C ./demos/demo-v3 lint:vue2",
     "demo-v3:vue3": "pnpm run -C ./demos/demo-v3 lint:vue3",
     "demo-v3:html": "pnpm run -C ./demos/demo-v3 lint:html",
-    "demo-v3:custom": "pnpm run -C ./demos/demo-v3 lint:custom"
+    "demo-v3:custom": "pnpm run -C ./demos/demo-v3 lint:custom",
+    "demo-v3:react-jsx": "pnpm run -C ./demos/demo-v3 lint:react-jsx",
+    "demo-v3:react-tsx": "pnpm run -C ./demos/demo-v3 lint:react-tsx",
+    "demo-v3:react-hooks-tsx": "pnpm run -C ./demos/demo-v3 lint:react-hooks-tsx"
   },
   "devDependencies": {
     "@changesets/cli": "2.30.0"
