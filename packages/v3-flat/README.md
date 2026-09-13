@@ -12,6 +12,8 @@
 - 内置 `@typescript-eslint/eslint-plugin`，提供 TS 代码的校验规则
 - 内置 `eslint-plugin-import`，提供 import 的校验规则
 - 内置 `eslint-plugin-vue`，提供 Vue 代码的校验规则
+- 内置 `eslint-plugin-react`，提供 React 代码的校验规则
+- 内置 `eslint-plugin-react-hooks`，提供 React Hooks 的校验规则
 - 内置 `@html-eslint/eslint-plugin`，提供 html 文件的解析和校验规则
 - 内置 `eslint-plugin-html`，提供 html 文件中 &lt;script> 的 JS 解析能力
 
@@ -38,6 +40,8 @@ pnpm add -D @houheaven/eslint-config-helper@next
 | configs.vue2       | 校验 Vue2 + JS（Es6+）+ import 代码           | `.vue`                |  
 | configs.vue3       | 校验 Vue3 + JS（Es6+）+ import 代码           | `.vue`                |  
 | configs.vue3Ts     | 校验 Vue3 + TS + JS（Es6+）+ import 代码      | `.vue`                |  
+| configs.reactJsx   | 校验 React + JS（Es6+）+ import 代码          | `.jsx`                |  
+| configs.reactTsx   | 校验 React + TS + JS（Es6+）+ import 代码     | `.tsx`                |  
 | configs.htmlEs5    | 校验 html 和 &lt;script> 中的 JS（Es5） 代码   | `.html` `.htm` `.php` |  
 | configs.htmlEs6    | 校验 html 和 &lt;script> 中的 JS（Es6+） 代码  | `.html` `.htm` `.php` |  
 
@@ -50,6 +54,8 @@ pnpm add -D @houheaven/eslint-config-helper@next
 | supports.vue2       | 校验 Vue2 + JS（Es6+）+ import 代码           | `.vue`                |  
 | supports.vue3       | 校验 Vue3 + JS（Es6+）+ import 代码           | `.vue`                |  
 | supports.vue3Ts     | 校验 Vue3 + TS + JS（Es6+）+ import 代码      | `.vue`                |  
+| supports.reactJsx   | 校验 React + JS（Es6+）+ import 代码          | `.jsx`                |  
+| supports.reactTsx   | 校验 React + TS + JS（Es6+）+ import 代码     | `.tsx`                |  
 | supports.htmlEs5    | 校验 html 和 &lt;script> 中的 JS（Es5） 代码   | `.html` `.htm` `.php` |  
 | supports.htmlEs6    | 校验 html 和 &lt;script> 中的 JS（Es6+） 代码  | `.html` `.htm` `.php` |  
 
@@ -141,6 +147,30 @@ export default [
 ];
 ```
 
+### React（JSX）
+
+校验文件范围：`.jsx`
+
+```js
+import hhEslintConfigHelper from "@houheaven/eslint-config-helper";
+
+export default [
+  ...hhEslintConfigHelper.configs.reactJsx,
+];
+```
+
+### React + TypeScript（TSX，推荐）
+
+校验文件范围：`.tsx`
+
+```js
+import hhEslintConfigHelper from "@houheaven/eslint-config-helper";
+
+export default [
+  ...hhEslintConfigHelper.configs.reactTsx,
+];
+```
+
 ### html + ES5
 
 校验文件范围：`.html` `.js`
@@ -215,6 +245,8 @@ export default [
 - 查看 [`Eslint 规则文档`](https://www.npmjs.com/package/eslint)  
 - 查看 [`eslint-plugin-import 规则文档`](https://www.npmjs.com/package/eslint-plugin-import)  
 - 查看 [`eslint-plugin-vue 规则文档`](https://eslint.vuejs.org/rules/)  
+- 查看 [`eslint-plugin-react 规则文档`](https://github.com/jsx-eslint/eslint-plugin-react#list-of-supported-rules)  
+- 查看 [`eslint-plugin-react-hooks 规则文档`](https://www.npmjs.com/package/eslint-plugin-react-hooks)  
 - 查看 [`@html-eslint 规则文档`](https://html-eslint.org/docs/getting-started/)  
 - 查看 [`@typescript-eslint/eslint-plugin 规则文档`](https://typescript-eslint.io/rules/)  
 
@@ -233,6 +265,8 @@ export default [
 - [`eslint`](https://www.npmjs.com/package/eslint)  
 - [`eslint-plugin-import`](https://www.npmjs.com/package/eslint-plugin-import)  
 - [`eslint-plugin-vue`](https://www.npmjs.com/package/eslint-plugin-vue)  
+- [`eslint-plugin-react`](https://www.npmjs.com/package/eslint-plugin-react)  
+- [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks)  
 - [`eslint-plugin-html`](https://www.npmjs.com/package/eslint-plugin-html)  
 - [`eslint-import-resolver-alias`](https://www.npmjs.com/package/eslint-import-resolver-alias)  
 - [`eslint-import-resolver-node`](https://www.npmjs.com/package/eslint-import-resolver-node)  
