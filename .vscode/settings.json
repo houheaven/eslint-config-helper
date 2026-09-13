@@ -2,8 +2,8 @@
   // ========================================================
   // VScode Config
   // 作者：立树
-  // 版本：1.4.2
-  // 日期：2026-09-10
+  // 版本：1.4.3
+  // 日期：2026-09-13
   // ========================================================
   // 工作台
   "workbench.colorTheme": "Visual Studio Dark",
@@ -85,6 +85,9 @@
   "[php]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.formatOnSave": false
   },
   // Eslint 配置
   "eslint.enable": true,
