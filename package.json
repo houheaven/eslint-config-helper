@@ -5,6 +5,8 @@
   "author": "立树",
   "private": true,
   "scripts": {
+    "changeset": "changeset",
+    "changeset-version": "changeset version",
     "publish-v2": "cd packages/v2-legacy && npm publish --tag legacy",
     "publish-v3": "cd packages/v3-flat && npm publish --tag latest",
     "reset": "bash .stuff/reset-project.sh",
