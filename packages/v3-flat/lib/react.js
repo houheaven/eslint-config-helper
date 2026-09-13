@@ -3,6 +3,7 @@
 // @houheaven/eslint-config-helper/react
 // ----------------------------------------------------------
 // - eslint-plugin-react 定制规则
+// - eslint-plugin-react-hooks 定制规则
 // ==========================================================
 
 import utils from "@houheaven/eslint-config-helper-core";
