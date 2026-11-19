@@ -1,0 +1,135 @@
+
+# ==========================================================
+# 发布到 npm
+# ----------------------------------------------------------
+# 触发方式：
+# - 推送 tag：v3.x.x 发布 packages/v3-flat，v2.x.x 发布 packages/v2-legacy
+# - 手动触发：在 Actions 页面选择要发布的包（默认只演练，不真正发布）
+#
+# dist-tag 规则：
+# - v3 正式版 → latest，v3 预发布版（如 v3.3.0-beta.1）→ next
+# - v2 → legacy
+#
+# 认证方式：npm Trusted Publishing（OIDC），无需配置 NPM_TOKEN
+# - 需要先在 npmjs.com 的包设置中，将本仓库 + publish.yml 登记为 Trusted Publisher
+# ==========================================================
+
+name: Npm 发布工作流
+run-name: Npm 发布工作流
+
+on:
+  push:
+    tags:
+      - "v2.*"
+      - "v3.*"
+  workflow_dispatch:
+    inputs:
+      package:
+        description: "要发布的包"
+        type: choice
+        required: true
+        default: v3-flat
+        options:
+          - v3-flat
+          - v2-legacy
+      dry-run:
+        description: "只演练，不真正发布"
+        type: boolean
+        default: true
+
+# 同一时间只允许一个发布任务，且不中断进行中的发布
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write   # Trusted Publishing（OIDC）必需
+
+jobs:
+  publish:
+    name: 发布到 Npm
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v7
+
+      - name: 配置 pnpm
+        uses: pnpm/setup@v3
+        with:
+          runtime: node@22
+          # version: 12.11.2     # pnpm 版本，如果 package.json 中没有指定 packageManager，可以在此处开启
+          require-lockfile: true
+          cache: true
+
+      # 根据 tag 或手动输入，确定要发布的包目录和 dist-tag
+      - name: 解析包（确认发包正确有效）
+        id: target
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF_NAME: ${{ github.ref_name }}
+          INPUT_PACKAGE: ${{ inputs.package }}
+        run: |
+          if [ "$EVENT_NAME" = "push" ]; then
+            case "$REF_NAME" in
+              v3.*) package="v3-flat" ;;
+              v2.*) package="v2-legacy" ;;
+              *) echo "::error::无法识别的 tag：$REF_NAME"; exit 1 ;;
+            esac
+          else
+            package="$INPUT_PACKAGE"
+          fi
+
+          dir="packages/$package"
+          version="$(node -p "require('./$dir/package.json').version")"
+
+          # tag 触发时，tag 必须与 package.json 的版本号一致
+          if [ "$EVENT_NAME" = "push" ] && [ "$REF_NAME" != "v$version" ]; then
+            echo "::error::tag（$REF_NAME）与 $dir/package.json 的版本号（$version）不一致"
+            exit 1
+          fi
+
+          if [ "$package" = "v2-legacy" ]; then
+            dist_tag="legacy"
+          elif [[ "$version" == *-* ]]; then
+            dist_tag="next"
+          else
+            dist_tag="latest"
+          fi
+
+          echo "dir=$dir" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "dist-tag=$dist_tag" >> "$GITHUB_OUTPUT"
+          echo "准备发布：$dir@$version（dist-tag：$dist_tag）"
+
+      # 已发布过的版本直接报错，避免 npm publish 阶段才失败
+      - name: 检查版本是否已发布
+        env:
+          VERSION: ${{ steps.target.outputs.version }}
+        run: |
+          if npm view "@houheaven/eslint-config-helper@$VERSION" version > /dev/null 2>&1; then
+            echo "::error::版本 $VERSION 已存在于 npm，请先更新版本号"
+            exit 1
+          fi
+
+      # v2/v3 通过 bundledDependencies 内置了私有的 core 包，确认它确实被打进了 tarball
+      - name: 验证是否包含 core 包
+        working-directory: ${{ steps.target.outputs.dir }}
+        run: |
+          if ! npm pack --dry-run --json | grep -q "eslint-config-helper-core"; then
+            echo "::error::tarball 中缺少 @houheaven/eslint-config-helper-core"
+            exit 1
+          fi
+
+      - name: 发布到 npm
+        working-directory: ${{ steps.target.outputs.dir }}
+        env:
+          DIST_TAG: ${{ steps.target.outputs.dist-tag }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry-run }}
+          # NPM_CONFIG_PROVENANCE: false
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            npm publish --tag "$DIST_TAG" --access public --dry-run
+          else
+            npm publish --tag "$DIST_TAG" --access public
+          fi
