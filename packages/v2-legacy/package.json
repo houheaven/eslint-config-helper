@@ -1,6 +1,6 @@
 {
   "name": "@houheaven/eslint-config-helper",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Eslint 规则助手",
   "author": "立树",
   "license": "MIT",
@@ -40,12 +40,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/houheaven/eslint-config-helper.git"
+    "url": "https://github.com/houheaven/eslint-config-helper.git"
   },
   "bugs": {
-    "url": "https://gitee.com/houheaven/eslint-config-helper/issues"
+    "url": "https://github.com/houheaven/eslint-config-helper/issues"
   },
-  "homepage": "https://gitee.com/houheaven/eslint-config-helper",
+  "homepage": "https://github.com/houheaven/eslint-config-helper",
   "scripts": {
     "lint": "eslint ."
   },
