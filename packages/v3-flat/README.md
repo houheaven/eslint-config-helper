@@ -38,6 +38,7 @@ pnpm add -D @houheaven/eslint-config-helper@next
 | configs.es6        | 校验 JS（Es6+）+ import 代码                  | `.js` `.mjs` `.cjs`   |  
 | configs.typescript | 校验 TS + JS（Es6+）+ import 代码             | `.ts`                 |  
 | configs.vue2       | 校验 Vue2 + JS（Es6+）+ import 代码           | `.vue`                |  
+| configs.vue2Ts     | 校验 Vue2 + TS + JS（Es6+）+ import 代码      | `.vue`                |  
 | configs.vue3       | 校验 Vue3 + JS（Es6+）+ import 代码           | `.vue`                |  
 | configs.vue3Ts     | 校验 Vue3 + TS + JS（Es6+）+ import 代码      | `.vue`                |  
 | configs.reactJsx   | 校验 React + JS（Es6+）+ import 代码          | `.jsx`                |  
@@ -52,6 +53,7 @@ pnpm add -D @houheaven/eslint-config-helper@next
 | supports.es6        | 校验 JS（Es6+）+ import 代码                  | `.js` `.mjs` `.cjs`   |  
 | supports.typescript | 校验 TS + JS（Es6+）+ import 代码             | `.ts`                 |  
 | supports.vue2       | 校验 Vue2 + JS（Es6+）+ import 代码           | `.vue`                |  
+| supports.vue2Ts     | 校验 Vue2 + TS + JS（Es6+）+ import 代码      | `.vue`                |  
 | supports.vue3       | 校验 Vue3 + JS（Es6+）+ import 代码           | `.vue`                |  
 | supports.vue3Ts     | 校验 Vue3 + TS + JS（Es6+）+ import 代码      | `.vue`                |  
 | supports.reactJsx   | 校验 React + JS（Es6+）+ import 代码          | `.jsx`                |  
@@ -117,6 +119,20 @@ import hhEslintConfigHelper from "@houheaven/eslint-config-helper";
 export default [
   ...hhEslintConfigHelper.configs.es6,
   ...hhEslintConfigHelper.configs.vue2,
+];
+```
+
+### Vue2 + TypeScript
+
+校验文件范围：`.vue` `.ts` `.js`
+
+```js
+import hhEslintConfigHelper from "@houheaven/eslint-config-helper";
+
+export default [
+  ...hhEslintConfigHelper.configs.es6,
+  ...hhEslintConfigHelper.configs.typescript,
+  ...hhEslintConfigHelper.configs.vue2Ts,
 ];
 ```
 
