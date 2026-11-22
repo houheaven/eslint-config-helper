@@ -11,7 +11,7 @@
 # - v2 → legacy
 #
 # 认证方式：npm Trusted Publishing（OIDC），无需配置 NPM_TOKEN
-# - 需要先在 npmjs.com 的包设置中，将本仓库 + publish.yml 登记为 Trusted Publisher
+# - 需要先在 npmjs.com 的包设置中，将本仓库 + npm-publish.yml 登记为 Trusted Publisher
 # ==========================================================
 
 name: Npm 发布工作流
@@ -57,7 +57,7 @@ jobs:
       - name: 配置 pnpm
         uses: pnpm/setup@v3
         with:
-          runtime: node@22
+          runtime: node@24
           # version: 12.11.2     # pnpm 版本，如果 package.json 中没有指定 packageManager，可以在此处开启
           require-lockfile: true
           cache: true
