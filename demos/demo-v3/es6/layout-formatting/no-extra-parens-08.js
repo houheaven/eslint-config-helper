@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 
 
-/* eslint no-extra-parens: ["warn", "all", { "enforceForNewInMemberExpressions": true }] */
+/* eslint @stylistic/no-extra-parens: ["warn", "all", { "enforceForNewInMemberExpressions": true }] */
 
 const foo = (new Bar()).baz;
 

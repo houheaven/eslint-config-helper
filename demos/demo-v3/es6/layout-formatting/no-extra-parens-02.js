@@ -6,7 +6,7 @@
 /* eslint-disable no-unused-expressions */
 
 
-/* eslint no-extra-parens: ["warn", "all", { "returnAssign": true }] */
+/* eslint @stylistic/no-extra-parens: ["warn", "all", { "returnAssign": true }] */
 
 function a(b) {
   return (b = 1);

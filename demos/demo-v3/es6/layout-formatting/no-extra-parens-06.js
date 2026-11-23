@@ -4,7 +4,7 @@
 /* eslint-disable no-constant-condition */
 
 
-/* eslint no-extra-parens: ["warn", "all", { "enforceForArrowConditionals": true }] */
+/* eslint @stylistic/no-extra-parens: ["warn", "all", { "enforceForArrowConditionals": true }] */
 
 const b = a => 1 ? 2 : 3;
 const d = c => (1 ? 2 : 3);

@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-expressions */
 
 
-/* eslint no-extra-parens: ["warn", "all", { "ternaryOperandBinaryExpressions": true }] */
+/* eslint @stylistic/no-extra-parens: ["warn", "all", { "ternaryOperandBinaryExpressions": true }] */
 
 (a && b) ? foo : bar;
 
