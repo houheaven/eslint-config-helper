@@ -3,7 +3,8 @@
 # 发布到 npm
 # ----------------------------------------------------------
 # 触发方式：
-# - 推送 tag：v3.x.x 发布 packages/v3-flat，v2.x.x 发布 packages/v2-legacy
+# - 推送 tag：v3.x.x 发布 packages/v3-flat
+# - 推送 tag：v2.x.x 发布 packages/v2-legacy
 # - 手动触发：在 Actions 页面选择要发布的包（默认只演练，不真正发布）
 #
 # dist-tag 规则：
@@ -66,10 +67,15 @@ jobs:
       - name: 解析包（确认发包正确有效）
         id: target
         env:
-          EVENT_NAME: ${{ github.event_name }}
-          REF_NAME: ${{ github.ref_name }}
-          INPUT_PACKAGE: ${{ inputs.package }}
+          EVENT_NAME: ${{ github.event_name }}          # 触发事件类型，push 或 workflow_dispatch
+          REF_NAME: ${{ github.ref_name }}              # 触发事件的 ref 名，如 tag 名、分支名
+          INPUT_PACKAGE: ${{ inputs.package }}          # 手动触发的包，如 v3-flat、v2-legacy
         run: |
+          # 调试信息
+          # echo "$EVENT_NAME";
+          # echo "$REF_NAME";
+          # echo "$INPUT_PACKAGE";
+
           if [ "$EVENT_NAME" = "push" ]; then
             case "$REF_NAME" in
               v3.*) package="v3-flat" ;;
@@ -77,6 +83,7 @@ jobs:
               *) echo "::error::无法识别的 tag：$REF_NAME"; exit 1 ;;
             esac
           else
+            # 手动触发（workflow_dispatch）
             package="$INPUT_PACKAGE"
           fi
 
@@ -85,7 +92,7 @@ jobs:
 
           # tag 触发时，tag 必须与 package.json 的版本号一致
           if [ "$EVENT_NAME" = "push" ] && [ "$REF_NAME" != "v$version" ]; then
-            echo "::error::tag（$REF_NAME）与 $dir/package.json 的版本号（$version）不一致"
+            echo "::error::tag（$REF_NAME）与期望值（v$version）不一致，请核对 $dir/package.json 的版本号"
             exit 1
           fi
 
@@ -100,15 +107,20 @@ jobs:
           echo "dir=$dir" >> "$GITHUB_OUTPUT"
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "dist-tag=$dist_tag" >> "$GITHUB_OUTPUT"
-          echo "准备发布：$dir@$version（dist-tag：$dist_tag）"
+          echo "========================================"
+          echo "发布包名：@houheaven/eslint-config-helper@$version"
+          echo "发布目录：$dir"
+          echo "发布标签：$dist_tag"
+          echo "========================================"
 
       # 已发布过的版本直接报错，避免 npm publish 阶段才失败
       - name: 检查版本是否已发布
         env:
           VERSION: ${{ steps.target.outputs.version }}
         run: |
-          if npm view "@houheaven/eslint-config-helper@$VERSION" version > /dev/null 2>&1; then
-            echo "::error::版本 $VERSION 已存在于 npm，请先更新版本号"
+          package="@houheaven/eslint-config-helper"
+          if npm view "$package@$VERSION" version > /dev/null 2>&1; then
+            echo "::error::Npm 平台已存在 $package 此版本号 v$VERSION，请先更新版本号"
             exit 1
           fi
 
