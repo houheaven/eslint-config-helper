@@ -4,7 +4,7 @@
 /* eslint-disable no-unused-vars */
 
 
-/* eslint no-extra-parens: ["warn", "all", { "allowParensAfterCommentPattern": "" }] */
+/* eslint @stylistic/no-extra-parens: ["warn", "all", { "allowParensAfterCommentPattern": "" }] */
 const span = /* @type {HTMLSpanElement} */(event.currentTarget);
 if (/* @type {Foo | Bar} */(options).baz) console.log('Lint free');
 foo(/* @type {Bar} */ (bar), options, {

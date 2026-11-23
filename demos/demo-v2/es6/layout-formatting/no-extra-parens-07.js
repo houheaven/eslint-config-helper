@@ -5,7 +5,7 @@
 /* eslint-disable no-unused-expressions */
 
 
-/* eslint no-extra-parens: ["warn", "all", { "enforceForSequenceExpressions": true }] */
+/* eslint @stylistic/no-extra-parens: ["warn", "all", { "enforceForSequenceExpressions": true }] */
 
 (a, b);
 

@@ -5,7 +5,7 @@
 /* eslint-disable space-before-function-paren */
 
 
-/* eslint no-extra-parens: ["warn", "all", { "enforceForFunctionPrototypeMethods": true }] */
+/* eslint @stylistic/no-extra-parens: ["warn", "all", { "enforceForFunctionPrototypeMethods": true }] */
 
 const foo = (function () {}).call();
 

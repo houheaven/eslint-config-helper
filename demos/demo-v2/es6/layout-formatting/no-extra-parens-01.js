@@ -4,7 +4,7 @@
 /* eslint-disable no-cond-assign */
 
 
-/* eslint no-extra-parens: ["warn", "all", { "conditionalAssign": true }] */
+/* eslint @stylistic/no-extra-parens: ["warn", "all", { "conditionalAssign": true }] */
 
 while((foo = bar())) {}
 
