@@ -3,6 +3,14 @@
 > @houheaven/eslint-config-helper
 
 
+## v2.1.8
+
+`发布：2026-11-25`
+<!-- 开发：2026-11-25 -->
+- 优化：`@typescript-eslint/naming-convention` 属性规则过滤特殊属性 `@`，避免配置别名等特殊属性触发命名校验误报
+- 优化：普通变量继续支持驼峰式与帕斯卡式命名（`strictCamelCase`、`StrictPascalCase`）
+
+
 ## v2.1.7
 
 `发布：2026-11-25`
