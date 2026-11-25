@@ -3,6 +3,13 @@
 > @houheaven/eslint-config-helper
 
 
+## v2.1.9
+
+`发布：2026-11-26`
+<!-- 开发：2026-11-26 -->
+- 新增：修改了 `@typescript-eslint/naming-convention` 的变量规则，常量变量支持严格帕斯卡命名（`StrictPascalCase`），兼容 React 组件变量名
+
+
 ## v2.1.8
 
 `发布：2026-11-25`
