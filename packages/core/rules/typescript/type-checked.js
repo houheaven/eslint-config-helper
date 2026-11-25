@@ -13,8 +13,9 @@ module.exports = {
       {
         // 普通变量
         // - 驼峰式（myVariableName）
+        // - 严格帕斯卡命名（React 组件：MyComponent）
         "selector": "variable",
-        "format": ["strictCamelCase"],
+        "format": ["strictCamelCase", "StrictPascalCase"],
       },
       {
         // 常量（const）
