@@ -33,8 +33,5 @@
     "demo-v3:react-jsx": "pnpm run -C ./demos/demo-v3 lint:react-jsx",
     "demo-v3:react-tsx": "pnpm run -C ./demos/demo-v3 lint:react-tsx",
     "demo-v3:react-hooks-tsx": "pnpm run -C ./demos/demo-v3 lint:react-hooks-tsx"
-  },
-  "devDependencies": {
-    "@changesets/cli": "2.30.0"
   }
 }
