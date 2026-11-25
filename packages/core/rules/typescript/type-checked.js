@@ -21,9 +21,10 @@ module.exports = {
         // 常量（const）
         // - 驼峰式（myConstantName）
         // - 大写+下划线（MY_CONSTANT）
+        // - 严格帕斯卡命名（React 组件：MyComponent）
         "selector": "variable",
         "modifiers": ["const"],
-        "format": ["strictCamelCase", "UPPER_CASE"],
+        "format": ["strictCamelCase", "StrictPascalCase", "UPPER_CASE"],
       },
       {
         // 布尔值
