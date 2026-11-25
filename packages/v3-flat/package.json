@@ -1,6 +1,6 @@
 {
   "name": "@houheaven/eslint-config-helper",
-  "version": "3.2.4",
+  "version": "3.2.5",
   "description": "Eslint 规则助手 (Flat Config)",
   "author": "立树",
   "license": "MIT",
