@@ -43,8 +43,13 @@ module.exports = {
         // 属性
         // - 驼峰式（myPropertyName）
         // - 严格帕斯卡命名（Vue 组件：MyComponent）
+        // - 过滤掉一些特殊属性（如 配置文件中的别名 @）
         "selector": "property",
         "format": ["strictCamelCase", "StrictPascalCase"],
+        "filter": {
+          "regex": "^(@)$",
+          "match": false,
+        },
       },
       {
         // 函数
