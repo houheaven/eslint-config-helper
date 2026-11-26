@@ -1,4 +1,5 @@
 
+import utils from "@houheaven/eslint-config-helper-core";
 import es5 from "./lib/javascript-es5.js";
 import es6 from "./lib/javascript-es6.js";
 import typescript from "./lib/typescript.js";
@@ -26,4 +27,5 @@ export default {
     ...vue3.supports,
     ...react.supports,
   },
+  utils,
 };
