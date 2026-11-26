@@ -1,6 +1,9 @@
 ---
 name: "hh-eslint-disable-style-unifier"
 description: '统一 ESLint 关闭规则指令的书写风格：把 `/* eslint <ruleId>: "off" */` 与合并式 `/* eslint-disable a, b */` 全部改写为「每条规则一行 `/* eslint-disable <ruleId> */`」。当用户提到 eslint-disable 混用、风格不统一、批量整理关闭规则指令时触发。'
+argument-hint: "[v2|v3|both] [版本级别或发布说明]"
+user-invocable: true
+disable-model-invocation: true
 author: 立树
 version: 1.2.0
 created: 2026-09-11

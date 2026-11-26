@@ -1,9 +1,12 @@
 ---
+name: hh-git-commit-message
+description: 按仓库规范检查暂存区内容并生成中文 Git 提交信息；用户要求提交暂存文件、生成提交信息或调用此 Skill 时使用。
+user-invocable: true
 alwaysApply: true
 scene: git_message
 author: 立树
-version: 2.1.0
-updated: 2026-10-23
+version: 2.2.0
+updated: 2026-11-26
 ---
 
 # AI 生成提交信息的规则
