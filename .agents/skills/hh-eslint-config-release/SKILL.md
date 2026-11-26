@@ -1,7 +1,7 @@
 ---
 name: "hh-eslint-config-release"
 description: "为 eslint-config-helper 发布 v2 legacy 和/或 v3 flat 包：按改动范围更新版本与 CHANGELOG，分别提交并创建匹配的 Git tag。当用户要求更新版本、准备发布、同步 v2/v3 changelog、为发布打 tag 时触发。"
-argument-hint: "[v2|v3|both] [版本级别或发布说明]"
+argument-hint: "[v2|v3|both] [版本级别或发布说明] [major.minor.patch]"
 user-invocable: true
 disable-model-invocation: true
 author: 立树
@@ -39,7 +39,6 @@ updated: 2026-11-26
 - `packages/core/` 中的共享规则或实现变更同时影响两个发行包，默认发布 v2 和 v3。
 - 仅影响某一个发行包自身的改动，只发布对应包。
 - 用户明确指定发布包时按用户指定执行；若指定范围与改动影响明显冲突，先说明并停止打 tag。
-- `.github/workflows/npm-publish.yml` 监听 `v2.*` 与 `v3.*` tag，并校验 tag 必须等于对应包 `package.json` 的版本。tag 推送后会触发 npm 发布；创建 tag 本身不等于已发布到 npm。
 
 ## Step 1：检查发布基线
 
