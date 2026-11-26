@@ -1,6 +1,6 @@
 ---
 name: "hh-eslint-config-release"
-description: "为 eslint-config-helper 发布 v2 legacy 和/或 v3 flat 包：按改动范围更新版本与 CHANGELOG，分别提交并创建匹配的 Git tag。当用户要求更新版本、准备发布、同步 v2/v3 changelog、为发布打 tag 时触发。"
+description: "仅为 packages/ 内的 eslint-config-helper 发行包发布新版本：更新 v2 legacy 和/或 v3 flat 的版本与 CHANGELOG，分别提交并创建匹配的 Git tag。当用户要求发布包新版本时使用。"
 argument-hint: "[v2|v3|both] [版本级别或发布说明] [major.minor.patch]"
 user-invocable: true
 disable-model-invocation: true
@@ -23,6 +23,13 @@ updated: 2026-11-26
 
 本 Skill 只负责版本发布提交和本地 tag，不会默认推送 commit 或 tag。
 
+## 适用范围与强制边界
+
+- 本 Skill 只处理 `packages/` 内的发行包及其源代码，包括 `packages/core/`、`packages/v2-legacy/` 和 `packages/v3-flat/`。
+- 本 Skill 允许修改、暂存和提交的文件仅限目标发行包目录内的 `package.json` 与 `CHANGELOG.md`；不得修改、暂存或提交 `packages/` 以外的项目文件，也不得替用户提交包源码或其他普通文件。
+- 可以查看 Git 状态以识别范围外改动，但不能将其纳入发布流程。若当前发布任务伴有 `packages/` 外未提交改动，停止发布，说明这些改动不属于本 Skill 的处理范围。
+- 若用户要求本 Skill 提交非版本发布文件、处理 `packages/` 外的变更，或执行其他普通 Git 提交，立即中止本次 Skill 执行，不再修改、暂存、提交或打 tag；明确提示用户使用 `hh-git-commit-message` Skill 处理普通 Git 提交。
+
 ## 何时触发
 
 - 用户要求更新项目/包版本、准备发布、更新 changelog 或打版本 tag；
@@ -43,7 +50,7 @@ updated: 2026-11-26
 ## Step 1：检查发布基线
 
 1. 检查 `git status --short`、近期提交和现有 tag。
-2. 确认要发布的源代码改动已存在于当前 `HEAD`。如果目标改动仍未提交，或有其他未完成的代码变更，不要创建发布提交/tag；先回报具体阻塞，避免 tag 指向不含目标代码的提交。
+2. 确认要发布的源代码改动位于 `packages/` 且已存在于当前 `HEAD`。如果目标改动仍未提交，或发现 `packages/` 外有未提交改动，不要创建发布提交/tag；先回报具体阻塞，避免越界处理或让 tag 指向不含改动的提交。
 3. 确认目标包当前版本、最新 changelog 版本，以及该版本对应的 tag 尚不存在。
 4. 查看源代码 diff 和用户提供的发布说明，确定实际行为变化。不要仅根据文件名猜测 changelog 内容。
 
