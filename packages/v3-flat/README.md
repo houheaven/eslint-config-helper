@@ -30,6 +30,7 @@ pnpm add -D @houheaven/eslint-config-helper@next
 
 - `configs`：开箱即用的预设配置，绑定了文件拓展名
 - `supports`：提供特定文件的文件解析和校验规则，不与文件拓展名绑定
+- `utils`：工具函数
 
 ### configs 预设配置列表
 | 属性名              | 功能说明                                     | * 已绑定文件            |  
@@ -60,6 +61,13 @@ pnpm add -D @houheaven/eslint-config-helper@next
 | supports.reactTsx   | 校验 React + TS + JS（Es6+）+ import 代码     | `.tsx`                |  
 | supports.htmlEs5    | 校验 html 和 &lt;script> 中的 JS（Es5） 代码   | `.html` `.htm` `.php` |  
 | supports.htmlEs6    | 校验 html 和 &lt;script> 中的 JS（Es6+） 代码  | `.html` `.htm` `.php` |  
+
+### utils 工具函数
+| 属性名                     | 功能说明                                                  | 使用场景                                                          | 类型        |  
+| ------------------------- | --------------------------------------------------------- | ---------------------------------------------------------------- | ----------- |  
+| utils.rules               | 规则集合                                                   | -                                                                | `Object`    |  
+| utils.getRules(ruleNames) | 根据规则名称列表数组（ruleNames），获取其规则的预设配置       | 先临时关闭全部规则，然后只让部分规则生效，用于调试特定规则             | `Function`  |  
+| utils.getWarnRules(type)  | 根据规则类型（type），获取指定类型中的全部警告规则的预设配置   | 先临时关闭全部规则，然后只让 warn 警告规则生效，用于快速进行代码格式化 | `Function`  |  
 
 
 ## 用法
@@ -246,6 +254,28 @@ export default [
       ...hhEslintConfigHelper.supports.es6.rules,
       "no-console": "off",
     },
+  },
+];
+```
+
+### utils 应用场景
+
+```js
+import hhEslintConfigHelper from "@houheaven/eslint-config-helper";
+
+export default [
+  {
+    files: ["**/*.js"],
+    ...hhEslintConfigHelper.supports.es6,
+    rules: {
+      "no-console": "off",
+      ...hhEslintConfigHelper.utils.getRules(["no-var", "quotes"]),
+    },
+  },
+  {
+    files: ["**/*.vue"],
+    ...hhEslintConfigHelper.supports.vue3,
+    rules: hhEslintConfigHelper.utils.getWarnRules("vue3"),
   },
 ];
 ```
